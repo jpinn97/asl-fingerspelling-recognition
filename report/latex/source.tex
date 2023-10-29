@@ -1,0 +1,61 @@
+\documentclass[12pt, draftcls]{IEEEtran}
+
+\usepackage{graphicx}
+\usepackage{titling}
+\usepackage{setspace}
+\usepackage{geometry}
+\usepackage{tikz}
+\usepackage{xcolor}
+\usepackage{mathptmx}
+
+\usetikzlibrary{calc}
+
+\title{STU-Jamie_Pinnington_Individual_Project_40 Document}
+\author{Jamie Pinnington}
+\date{October 28, 2023}
+
+\geometry{
+    a4paper,
+    total={170mm,257mm},
+    left=20mm,
+    top=20mm,
+}
+
+\definecolor{Border}{RGB}{72, 36, 107} % Border line colour
+
+\begin{document}
+
+\begin{titlepage}
+    \begin{tikzpicture}[remember picture,overlay]
+        \draw[line width=2pt, Border] ($(current page.north west)+(1cm,-1cm)$) rectangle ($(current page.south east)+(-1cm,1cm)$);
+    \end{tikzpicture}
+    
+    \vspace{1.75cm}
+    \centering
+    {\fontfamily{ptm}\selectfont \textbf{???????} \par}
+    \vspace{0.25cm}
+    {\fontfamily{ptm}\selectfont \textbf{BSc (Hons.) Computer Science}\par}
+    \vspace{0.25cm}
+    {\fontfamily{ptm}\selectfont \textbf{2023-2024}\par}
+    \vspace{0.25cm}
+    {\fontfamily{ptm}\selectfont \textbf{Individual Project 40}\par}
+    \vspace{0.5cm}
+    \vspace{0.25cm}
+    {\fontfamily{ptm}\selectfont \textbf{Title:} \textit{?????}\par}
+    \vspace{0.25cm}
+    {\fontfamily{ptm}\selectfont \textbf{Author:} \textit{Jamie Pinnington}\par}
+    \vspace{0.25cm}
+    {\fontfamily{ptm}\selectfont \textbf{Supervisors:} \textit{Dr. Amina Souag, Dr. Hannan Azhar, Dr.
+            Konstantinos Sirlantzis}\par}
+    \vspace{0.25cm}
+    {\fontfamily{ptm}\selectfont \textbf{Email:} \textit{JP878@canterbury.ac.uk}\par}
+    
+    
+    % Bottom of the page
+\end{titlepage}
+
+\begin{tikzpicture}[remember picture,overlay]
+    \draw[line width=1pt] ($(current page.north west)+(1cm,-1cm)$) rectangle ($(current page.south east)+(-1cm,1cm)$);
+\end{tikzpicture}
+
+\end{document}

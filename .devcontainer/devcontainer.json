@@ -1,0 +1,13 @@
+{
+	"name": "Latex Dev Container",
+	"dockerFile": "stable/Dockerfile",
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"James-Yu.latex-workshop",
+				"GitHub.copilot",
+				"GitHub.copilot-chat"
+			]
+		}
+	}
+}
