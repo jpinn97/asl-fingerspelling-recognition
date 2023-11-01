@@ -160,9 +160,18 @@ cython_debug/
 #.idea/
 #
 
-# Ignore LaTeX intermediate files
+# Ignore LaTeX-Workshop generated files
 *.aux
+*.bbl
+*.blg
 *.log
-*.fls
+*.out
+*.pdf
 *.synctex.gz
 *.fdb_latexmk
+*.fls
+*.loc
+*.toc
+*.lot
+*.lof
+
