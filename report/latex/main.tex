@@ -1,0 +1,87 @@
+\documentclass[journal, draftcls]{IEEEtran}
+
+\usepackage{graphicx}
+\usepackage{titling}
+\usepackage{setspace}
+\usepackage{geometry}
+\usepackage{tikz}
+\usepackage{xcolor}
+\usepackage{mathptmx}
+\usepackage{ragged2e}
+\usepackage[pages=all]{background}
+\usepackage{docmute}
+
+\usetikzlibrary{calc}
+
+\title{STU-Jamie_Pinnington_Individual_Project_40 Document}
+\author{Jamie Pinnington}
+\date{October 28, 2023}
+
+\geometry{
+    a4paper,
+    total={170mm,257mm},
+    left=20mm,
+    top=20mm,
+}
+
+\definecolor{Border}{RGB}{72, 36, 107} % Border line colour
+
+\backgroundsetup{% Add this block
+scale=1,
+color=black,
+opacity=1,
+angle=0,
+contents={%
+\begin{tikzpicture}[remember picture,overlay]
+\draw[line width=2pt, Border] ($(current page.north west)+(1cm,-1cm)$) rectangle ($(current page.south east)+(-1cm,1cm)$);
+\end{tikzpicture}%
+}
+}
+
+\begin{document}
+
+% titlePage
+\include{titlePage}
+
+\clearpage % page 1
+
+\begin{abstract}
+\end{abstract}
+
+\section*{Acknowledgements}
+\clearpage % page 2
+
+\tableofcontents
+\clearpage % page 3
+
+\listoffigures
+\clearpage % page 4
+
+\listoftables
+\clearpage % page 5
+
+\section{Introduction:}
+
+\section{Literature Review:}
+\input{literature_review}
+
+\bibliographystyle{IEEEtran}
+%\bibliography{library}
+
+\appendices{Appendices}
+\section{Glossary}
+\section{Marking Scheme}
+\section{Changes to the Project Initiation Document}
+\section{Current Environment Investigation Report}
+\section{Requirements Specification}
+\section{Design Report}
+\section{Implementation}
+\section{Testing}
+\section{User Guide}
+\section{Project Management}
+\section{Meetings With Supervisor}
+\section{Agile Development: Timebox 1}
+\section{Agile Development: Timebox 2}
+\section{Agile Development: Timebox 3}
+
+\end{document}
