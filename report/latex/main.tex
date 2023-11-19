@@ -10,6 +10,10 @@
 \usepackage{ragged2e}
 \usepackage[pages=all]{background}
 \usepackage{docmute}
+\usepackage{graphicx}
+\usepackage{pdflscape}
+\usepackage[style=ieee]{biblatex}
+\addbibresource{library.bib}
 
 \usetikzlibrary{calc}
 
@@ -65,10 +69,21 @@ contents={%
 \section{Literature Review:}
 \input{literature_review}
 
-\bibliographystyle{IEEEtran}
-%\bibliography{library}
+\printbibliography
+
 
 \appendices{Appendices}
+\newpage
+\onecolumn
+\begin{landscape}
+    `    \section{Project Management Plan}
+    \begin{figure}[ht]
+        \centering
+        \includegraphics[width=1\textwidth]{gantt_chart.png}
+        \label{fig:Gantt Chart}
+    \end{figure}
+\end{landscape}
+\input{work_breakdown_structure.tex}
 \section{Glossary}
 \section{Marking Scheme}
 \section{Changes to the Project Initiation Document}

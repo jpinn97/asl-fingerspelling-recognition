@@ -1,0 +1,31 @@
+\tikzstyle{every node}=[draw=black,thick,anchor=west]
+\tikzstyle{selected}=[draw=red,fill=red!30]
+\tikzstyle{optional}=[dashed,fill=gray!50]
+
+\begin{document}
+
+\begin{tikzpicture}[
+                grow via three points={one child at (0.5,-0.7) and
+                                two children at (0.5,-0.7) and (0.5,-1.4)},
+                edge from parent path={(\tikzparentnode.south) |- (\tikzchildnode.west)}]
+
+        \node {Computer Science Project}
+        child { node {Project Initiation}
+                        child { node {Define project scope and objectives}}
+                        child { node {Identify stakeholders}}
+                        child { node {Initial project meeting and setup}}
+                }
+        child [missing] {}
+        child [missing] {}
+        child [missing] {}
+        child { node {Research and Analysis}
+                        child { node {Conduct literature review}}
+                        child { node {Define requirements}}
+                        % Add more nodes as needed
+                }
+        % Continue with other project phases in similar fashion
+        child { node {Design Phase}}
+        child { node {Development Phase}}
+        % ... and so on for other phases
+        ;
+\end{tikzpicture}
