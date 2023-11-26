@@ -1,0 +1,97 @@
+\begin{tikzpicture}[
+                level 1/.style={sibling distance=30mm, level distance=25mm},
+                level 2/.style={sibling distance=15mm},
+                level 3/.style={sibling distance=15mm},
+                edge from parent/.style={->,draw},
+                >=latex]
+        \tikzset{
+                basic/.style  = {draw, text width=4cm, drop shadow, font=\sffamily\scriptsize, rectangle},
+                root/.style   = {basic, rounded corners=2pt, thin, align=center,
+                                fill=green!30},
+                level 2/.style = {basic, rounded corners=6pt, thin,align=center, fill=green!60,
+                                text width=5em},
+                level 3/.style = {basic, thin, align=center, fill=pink!60, text width=6em}
+        }
+        % root of the the initial tree, level 1
+        \node[root] {ASL Fingerspelling Recognition Project: Build Application}
+        % The first level, as children of the initial tree
+        child {node[level 2] (c1) {Requirements Gathering}}
+        child {node[level 2] (c2) {Scope Definition}}
+        child {node[level 2] (c3) {Technical Feasibility Study}}
+        child {node[level 2] (c4) {User Experience Design}}
+        child {node[level 2] (c5) {Development Environment Setup}}
+        child {node[level 2] (c6) {Prototype Development}}
+        child {node[level 2] (c7) {Testing}}
+        child {node[level 2] (c8) {Iterative Feedback and Improvement}}
+        child {node[level 2] (c9) {Documentation}};
+
+        % The second level, relatively positioned nodes
+        \begin{scope}[every node/.style={level 3}]
+                % Tasks for Requirements Gathering
+                \node [below of = c1, xshift=15pt] (c11) {Conduct Qualitive Research};
+                \node [below of = c11] (c12) {Host Focus Groups};
+                \node [below of = c12] (c13) {Research Existing Kiosks};
+
+                % Tasks for Scope Definition
+                \node [below of = c2, xshift=15pt] (c21) {Write Project Charter};
+                \node [below of = c21] (c22) {Define MVP Features};
+                \node [below of = c22] (c23) {Create Project Plan};
+
+                % Tasks for Technical Feasibility Study
+                \node [below of = c3, xshift=15pt] (c31) {Assess Hardware};
+                \node [below of = c31] (c32) {Analyze Integration Points};
+
+                % Tasks for User Experience Design
+                \node [below of = c4, xshift=15pt] (c41) {Sketch Wireframes};
+                \node [below of = c41] (c42) {Conduct Usability Testing};
+
+                % Tasks for Development Environment Setup
+                \node [below of = c5, xshift=15pt] (c51) {Select Languages/Frameworks};
+                \node [below of = c51] (c52) {Configure Environments};
+                \node [below of = c52] (c53) {Establish Tools};
+
+                % Tasks for Prototype Development
+                \node [below of = c6, xshift=15pt] (c61) {Implement Core Functions};
+                \node [below of = c61] (c62) {Develop Front-end};
+                \node [below of = c62] (c63) {Integrate ASL Module};
+
+                % Tasks for Testing
+                \node [below of = c7, xshift=15pt] (c71) {Develop Test Cases};
+                \node [below of = c71] (c72) {Perform Testing};
+                \node [below of = c72] (c73) {Fix Bugs};
+                % Tasks for Iterative Feedback and Improvement
+                \node [below of = c8, xshift=15pt] (c81) {Gather User Feedback};
+                \node [below of = c81] (c82) {Refine Features};
+                \node [below of = c82] (c83) {Update Project Plan};
+
+                % Tasks for Documentation
+                \node [below of = c9, xshift=15pt] (c91) {Document Code};
+                \node [below of = c91] (c92) {Write Manual};
+        \end{scope}
+
+        % lines from each level 1 node to every one of its "children"
+        % Loop over each parent
+        % Loop over each parent
+        \foreach \parent in {1,...,9} {
+                        % Draw lines to child nodes that have been defined
+                        \draw[->] (c\parent.195) |- (c\parent1.west);
+                        \draw[->] (c\parent.195) |- (c\parent2.west);
+                        % Check for exceptions with different number of children
+                        \ifnum\parent=9
+                                % Parent 9 only has 2 children
+                        \else
+                                \ifnum\parent=4
+                                        % Parent 4 has 4 children
+                                        \draw[->] (c\parent.195) |- (c\parent2.west);
+                                \else
+                                        \ifnum\parent=3
+                                                % Parent 3 has 4 children
+                                                \draw[->] (c\parent.195) |- (c\parent2.west);
+                                        \else
+                                                % All other parents have 3 children
+                                                \draw[->] (c\parent.195) |- (c\parent3.west);
+                                        \fi
+                                \fi
+                        \fi
+                }
+\end{tikzpicture}

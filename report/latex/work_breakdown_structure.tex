@@ -1,31 +1,57 @@
-\tikzstyle{every node}=[draw=black,thick,anchor=west]
-\tikzstyle{selected}=[draw=red,fill=red!30]
-\tikzstyle{optional}=[dashed,fill=gray!50]
-
-\begin{document}
-
 \begin{tikzpicture}[
-                grow via three points={one child at (0.5,-0.7) and
-                                two children at (0.5,-0.7) and (0.5,-1.4)},
-                edge from parent path={(\tikzparentnode.south) |- (\tikzchildnode.west)}]
+                level 1/.style={sibling distance=35mm, level distance=20mm},
+                level 2/.style={sibling distance=25mm, level distance=20mm},
+                level 3/.style={sibling distance=35mm, level distance=20mm},
+                edge from parent/.style={->,draw},
+                >=latex]
+        \tikzset{
+                basic/.style  = {draw, text width=4cm, drop shadow, font=\sffamily\scriptsize, rectangle},
+                root/.style   = {basic, rounded corners=2pt, thin, align=center,
+                                fill=green!30},
+                level 2/.style = {basic, rounded corners=6pt, thin,align=center, fill=green!60,
+                                text width=8em},
+                level 3/.style = {basic, thin, align=center, fill=pink!60, text width=5em}
+        }
+        % root of the the initial tree, level 1
+        \node[root] {Project Charter: ASL Fingerspelling Recognition Project}
+        % The first level, as children of the initial tree
+        child {node[level 2] (c1) {Software Scope}}
+        child {node[level 2] (c3) {Create Final Report}}
+        child {node[level 2] (c4) {Create Presentation Poster}};
 
-        \node {Computer Science Project}
-        child { node {Project Initiation}
-                        child { node {Define project scope and objectives}}
-                        child { node {Identify stakeholders}}
-                        child { node {Initial project meeting and setup}}
-                }
-        child [missing] {}
-        child [missing] {}
-        child [missing] {}
-        child { node {Research and Analysis}
-                        child { node {Conduct literature review}}
-                        child { node {Define requirements}}
-                        % Add more nodes as needed
-                }
-        % Continue with other project phases in similar fashion
-        child { node {Design Phase}}
-        child { node {Development Phase}}
-        % ... and so on for other phases
-        ;
+        % The second level, relatively positioned nodes
+        \begin{scope}[every node/.style={level 3}]
+                % Tasks for Complete a literature search
+                \node [below of = c1, xshift=15pt] (c11) {Task 1: Develop Model};
+                \node [below of = c11] (c12) {Task 2: Build Application};
+
+                % Tasks for Create Final Report
+                \node [below of = c3, xshift=15pt] (c31) {Gather all data and findings};
+                \node [below of = c31] (c32) {Outline report structure};
+                \node [below of = c32] (c33) {Write, review, and revise report sections};
+                \node [below of = c33] (c34) {Compile references and appendices};
+                \node [below of = c34] (c35) {Finalize and proofread report};
+
+                % Tasks for Create Presentation Poster
+                \node [below of = c4, xshift=15pt] (c41) {Define key messages and objectives};
+                \node [below of = c41] (c42) {Design layout and select template};
+                \node [below of = c42] (c43) {Create graphics and write content};
+                \node [below of = c43] (c44) {Arrange content and print poster};
+                \node [below of = c44] (c45) {Prepare accompanying presentation};
+        \end{scope}
+
+        % lines from each level 1 node to every one of its "children"
+        % Continuous lines for each node without an arrow at the fork
+
+        \foreach \value in {1,2}
+        \draw[->] (c1.195) |- (c1\value.west);
+
+        \foreach \value in {1,...,5}
+        \draw[->] (c3.195) |- (c3\value.west);
+
+        \foreach \value in {1,...,5}
+        \draw[->] (c4.195) |- (c4\value.west);
+
 \end{tikzpicture}
+
+

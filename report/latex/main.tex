@@ -12,10 +12,13 @@
 \usepackage{docmute}
 \usepackage{graphicx}
 \usepackage{pdflscape}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{pdfpages}
 \usepackage[style=ieee]{biblatex}
 \addbibresource{library.bib}
 
-\usetikzlibrary{calc}
+\usetikzlibrary{calc, arrows.meta,shapes.geometric,positioning,shadows.blur,trees}
 
 \title{STU-Jamie_Pinnington_Individual_Project_40 Document}
 \author{Jamie Pinnington}
@@ -71,19 +74,47 @@ contents={%
 
 \printbibliography
 
-
 \appendices{Appendices}
 \newpage
 \onecolumn
+\section{Project Management Plan}
+% Include the Work Breakdown Structure
+\begin{figure}[ht]
+    \input{work_breakdown_structure_phase_one.tex}
+    \caption{Work Breakdown Structure: Develop Model}
+    \label{fig:WBS: Develop Model}
+\end{figure}
+\newpage
 \begin{landscape}
-    `    \section{Project Management Plan}
     \begin{figure}[ht]
-        \centering
-        \includegraphics[width=1\textwidth]{gantt_chart.png}
-        \label{fig:Gantt Chart}
+        \input{work_breakdown_structure_phase_two.tex}
+        \caption{Work Breakdown Structure: Build Application}
+        \label{fig:WBS: Build Application}
     \end{figure}
 \end{landscape}
-\input{work_breakdown_structure.tex}
+\newpage
+\begin{figure}[ht]
+    \input{work_breakdown_structure.tex}
+    \caption{Work Breakdown Structure}
+    \label{fig:WBS: Project Charter}
+\end{figure}
+\newpage
+\begin{landscape}
+    \begin{figure}[ht]
+        \centering
+        % Placeholder for the Gantt chart
+        \fbox{\parbox{15cm}{\centering Gantt chart placeholder \\ (Refer to the accompanying zipped file for the full chart)}}
+        \caption{Gantt Chart}
+        \label{fig:GanttChart}
+    \end{figure}
+    In this report's accompanying zipped file, a detailed Gantt chart is included as a separate document. Due to its extensive size and complexity, it is provided as an individual file to facilitate detailed review and ensure clarity. Please refer to the zipped file named gantt-project.png for the complete Gantt chart, which offers an in-depth view of the project timeline and milestones.
+\end{landscape}
+\newpage
+\begin{figure}[ht]
+    \input{risk_register.tex}
+    \caption{Risk register}
+    \label{fig:Risk Register}
+\end{figure}
 \section{Glossary}
 \section{Marking Scheme}
 \section{Changes to the Project Initiation Document}
