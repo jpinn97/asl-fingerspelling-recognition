@@ -1,5 +1,5 @@
 \documentclass[journal, draftcls]{IEEEtran}
-
+% MAKE FINAL WHEN COMPLETE
 \usepackage{graphicx}
 \usepackage{titling}
 \usepackage{setspace}
@@ -15,6 +15,8 @@
 \usepackage{longtable}
 \usepackage{array}
 \usepackage{pdfpages}
+\usepackage{fancyhdr}
+\usepackage{lettrine}
 \usepackage[style=ieee]{biblatex}
 \addbibresource{library.bib}
 
@@ -41,11 +43,20 @@ angle=0,
 contents={%
 \begin{tikzpicture}[remember picture,overlay]
 \draw[line width=2pt, Border] ($(current page.north west)+(1cm,-1cm)$) rectangle ($(current page.south east)+(-1cm,1cm)$);
-\end{tikzpicture}%
+\end{tikzpicture}% Add 'background lines'
 }
 }
 
+\fancypagestyle{IEEEtran}{%
+    \fancyhf{}  % Clear all header and footer fields
+    \fancyhead[R]{\thepage}  % Place the page number in the top right
+    \renewcommand{\headrulewidth}{0pt}  % Remove the header rule
+    \setlength{\headheight}{12pt}
+}
+
 \begin{document}
+
+\pagestyle{IEEEtran} % Apply the custom style to all pages
 
 % titlePage
 \include{titlePage}
@@ -69,15 +80,59 @@ contents={%
 
 \section{Introduction:}
 
+\lettrine[lines=2]{T}{his}
+
 \section{Literature Review:}
 \input{literature_review}
 
 \printbibliography
 
+% MAIN CHAPTERS
+\section{MAIN CHAPTERS:}
+\subsection{Chapter 1:}
+
 \appendices{Appendices}
 \newpage
 \onecolumn
-\section{Project Management Plan}
+\section{Glossary}
+\pagenumbering{arabic} % Reset page numbering
+\renewcommand{\thepage}{A\arabic{page}}
+\newpage
+\section{Marking Scheme}
+\pagenumbering{arabic} % Reset page numbering
+\renewcommand{\thepage}{B\arabic{page}}
+\newpage
+\section{Changes to the Project Initiation Document}
+\pagenumbering{arabic} % Reset page numbering
+\renewcommand{\thepage}{C\arabic{page}}
+\newpage
+\section{Current Environment Investigation Report}
+\pagenumbering{arabic} % Reset page numbering
+\renewcommand{\thepage}{D\arabic{page}}
+\newpage
+\section{Requirements Specification}
+\pagenumbering{arabic} % Reset page numbering
+\renewcommand{\thepage}{E\arabic{page}}
+\newpage
+\section{Design Report}
+\pagenumbering{arabic} % Reset page numbering
+\renewcommand{\thepage}{F\arabic{page}}
+\newpage
+\section{Implementation}
+\pagenumbering{arabic} % Reset page numbering
+\renewcommand{\thepage}{G\arabic{page}}
+\newpage
+\section{Testing}
+\pagenumbering{arabic} % Reset page numbering
+\renewcommand{\thepage}{H\arabic{page}}
+\newpage
+\section{User Guide}
+\pagenumbering{arabic} % Reset page numbering
+\renewcommand{\thepage}{I\arabic{page}}
+\newpage
+\section{Project Management}
+\pagenumbering{arabic} % Reset page numbering
+\renewcommand{\thepage}{J\arabic{page}} % Format page numbering as A1, A2, etc.
 % Include the Work Breakdown Structure
 \begin{figure}[ht]
     \input{work_breakdown_structure_phase_one.tex}
@@ -109,25 +164,28 @@ contents={%
     \end{figure}
     In this report's accompanying zipped file, a detailed Gantt chart is included as a separate document. Due to its extensive size and complexity, it is provided as an individual file to facilitate detailed review and ensure clarity. Please refer to the zipped file named gantt-project.png for the complete Gantt chart, which offers an in-depth view of the project timeline and milestones.
 \end{landscape}
-\newpage
 \begin{figure}[ht]
     \input{risk_register.tex}
     \caption{Risk register}
     \label{fig:Risk Register}
 \end{figure}
-\section{Glossary}
-\section{Marking Scheme}
-\section{Changes to the Project Initiation Document}
-\section{Current Environment Investigation Report}
-\section{Requirements Specification}
-\section{Design Report}
-\section{Implementation}
-\section{Testing}
-\section{User Guide}
-\section{Project Management}
+\newpage
 \section{Meetings With Supervisor}
+\pagenumbering{arabic} % Reset page numbering
+\renewcommand{\thepage}{K\arabic{page}}
+\newpage
+\input{project_meetings.tex}
 \section{Agile Development: Timebox 1}
+\pagenumbering{arabic} % Reset page numbering
+\renewcommand{\thepage}{L\arabic{page}}
+\newpage
 \section{Agile Development: Timebox 2}
+\pagenumbering{arabic} % Reset page numbering
+\renewcommand{\thepage}{O\arabic{page}}
+\newpage
 \section{Agile Development: Timebox 3}
+\pagenumbering{arabic} % Reset page numbering
+\renewcommand{\thepage}{N\arabic{page}}
+\newpage
 
 \end{document}
