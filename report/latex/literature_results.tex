@@ -1,0 +1,39 @@
+\begin{longtable}{p{0.15\textwidth}p{0.2\textwidth}p{0.2\textwidth}p{0.2\textwidth}p{0.2\textwidth}p{0.2\textwidth}p{0.2\textwidth}} % Adjust the column width as needed
+    \caption{Comparative Analysis of ASL Fingerspelling Recognition Studies}
+    \label{table:asl-comparison}                                                                                                                                                                                                                                                                                                                                                                                                                                                 \\
+    \toprule
+    Reference                                          & Model Used                                                                                                            & Framework                & Dataset                        & Key Findings                                                                                    & Performance Metrics                                    & Challenges Addressed                                                     \\
+    \midrule
+    \endfirsthead
+    \toprule
+    Reference                                          & Model Used                                                                                                            & Framework                & Dataset                        & Key Findings                                                                                    & Performance Metrics                                    & Challenges Addressed                                                     \\
+    \midrule
+    \endhead
+    \bottomrule
+    \endfoot
+    \endlastfoot
+    \cite{skumarTimeSeriesNeural2018}                  & RNN, LSTM, Attention, Encoder/Decoder                                                                                 & [Not Specified]          & NCSLGR Corpus                  & Recognition and translation of ASL glosses                                                      & GRR: 86\%, GER: 23\%                                   & Real-time recognition and translation                                    \\
+
+    \cite{weerasooriyaSinhalaFingerspellingSign2022}   & RF, KNN, LR                                                                                                           & [Not specified]          & FASSL custom dataset           & Developed a classifier for static signs using a small dataset                                   & Accuracy: 87.9\% (correct estimates)                   & Pose classification with limited data                                    \\
+
+    \cite{cihancamgozSignLanguageTransformers2020}     & Transformers with CTC loss                                                                                            & PyTorch                  & PHOENIX14T                     & State-of-the-art results in recognition and translation                                         & WER, BLEU-4 scores                                     & Translation from sign language videos to spoken language sentences       \\
+
+    \cite{abiyevReconstructionConvolutionalNeural2020} & CNN, SSD, FCN                                                                                                         & [Not specified]          & Kaggle ASL Fingerspelling      & High accuracy, vision-based translation                                                         & Accuracy: 92.21\%                                      & Real-time translation, robustness in ASL recognition                     \\
+
+    \cite{bantupalliAmericanSignLanguage2018}          & CNN, LSTM, RNN                                                                                                        & OpenCV                   & Self-created Dataset           & Effective recognition with custom CNN model                                                     & Accuracy: 98.11\%                                      & Robust recognition in controlled environments                            \\
+
+    \cite{kabadeAmericanSignLanguage2023}              & ResNet, Bi-LSTM, CTC, Attention                                                                                       & [Not specified]          & ChicagoFSWild                  & Recognition using optical flow and attention, preprocessing for occlusions                      & Letter accuracy: 57\%                                  & Recognition in 'wild' conditions, occlusions                             \\
+
+    \cite{shiAmericanSignLanguage2018}                 & CNN, LSTM, CTC                                                                                                        & Faster R-CNN             & Custom YouTube Dataset         & Improved accuracy with hand detection                                                           & Test Acc: 41.9\% with CTC                              & Recognition in the wild, varying conditions                              \\
+
+    \cite{shiFingerspellingRecognitionWild2019}        & CNN, RNN, CTC, Attention                                                                                              & TensorFlow               & ChicagoFSWild, ChicagoFSWild+  & Enhanced recognition in uncontrolled environments                                               & Word Error Rate: 27.2                                  & Recognition in diverse and challenging real-world scenarios              \\
+
+    \cite{shiFingerspellingDetectionAmerican2021}      & 2D/3D-CNN, Bi-LSTM                                                                                                    & OpenPose                 & ChicagoFSWild, ChicagoFSWild+  & Superior detection in uncontrolled environments                                                 & AP@IoU: 0.495, MSA: 0.386                              & Handling fine-grained handshapes and signer’s pose                       \\
+
+    \cite{nguyenDeepLearningAmerican2019}              & 1) LBP, HOG descriptors, multi-class SVM, 2) End-to-end CNN 3) CNN weights as feature extractor for Linear-kernel SVM & [Not specified]          & Massey Dataset                 & Three diverse methods for fingerspelling recognition                                            & Recognition rate: 97.49\%, 98.23\%, 98.30\%            & Adaptability in feature extraction and classification approaches         \\
+
+    \cite{chongAmericanSignLanguage2018}               & SVM and DNN                                                                                                           & TensorFlow, Scikit-learn & Self-created Dataset           & Comparison of SVM and DNN for ASL recognition; effective use of LOO approach for bias avoidance & Recognition rate: 72.79\%, 88.79\%                     & Multi-class classification with 36 classes (26 letters and 10 digits)    \\
+
+    \cite{bantupalliAmericanSignLanguage2018}          & CNN (Inception) for spatial features, LSTM for temporal features                                                      & TensorFlow, Keras        & American Sign Language Dataset & Efficient extraction of temporal and spatial features; use of Inception and LSTM models         & Accuracy up to 93\% (Softmax Layer), 58\% (Pool Layer) & Managing longer sequences with LSTM; preventing overfitting with dropout \\                                                                                                                                                                                                                                                                                                                                                                                                                                         \\*
+    \bottomrule
+\end{longtable}
