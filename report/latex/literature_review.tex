@@ -10,7 +10,9 @@
 
 Sign language is the primary form of communication for the deaf and hard of hearing community. It allows communication when the spoken language is not possible, and or when the speaker or receiver is deaf or hard of hearing.
 Depending on the situation, and like any language, it requires both parties to be fluent in the language to communicate effectively. However, this is not always the case. American Sign Language(ASL) is a complete, complex language that employs signs made with the hands and other movements, including facial expressions and postures of the body, and is used natively in the
-United States of America and globally by many individuals. Whilst no attempt has officially been made to survey the language, and most current estimates are based off of historical surveys that prove to be inaccurate\cite{mitchellHowManyPeople2006}. It is estimated that there are over 1 million signers\cite{AmericanSignLanguage}, but others estimates are as high as 2 million\cite{mitchellHowManyPeople2006}.
+United States of America and globally by many individuals.
+
+Whilst no attempt has officially been made to survey the language, and most current estimates are based off of historical surveys that prove to be inaccurate \citep{mitchellHowManyPeople2006}. It is estimated that there are over 1 million signers \citep{ethnologueAmericanSignLanguage2023}, but others estimates are as high as 2 million \citep{mitchellHowManyPeople2006}.
 ASL communicates through a variety of means including gestures, non-manual markers and lexical signs. The most understood are lexical vocabulary, each corresponding to a word or morpheme. Gestures and non-manual markers such as facial expression can complement and convey more interactive or meaningful lexical signs. Additional constructs include usage of space, role shifting and classifiers.
 
 \subsection{Purpose}
@@ -53,90 +55,136 @@ ASL communicates through a variety of means including gestures, non-manual marke
 \section{Methodology}
 
 \subsection{Literature Identification}
-This literature search was completed using the databases IEEE Xplore, Google Scholar, ACM Digital Library, and ScienceDirect. Search terms such as "ASL fingerspelling recognition", "Deep learning for ASL recognition",  "ASL recognition with CNN", "Accuracy of ASL recognition models", "Latest trends in ASL recognition", and "ASL recognition in real-time" were used alone and in conjunction with boolean operators "AND", "OR" to refine the search results. The search was limited to papers published in the last 5 years, and only peer-reviewed journal articles, conference papers, and high quality theses were considered. The search was also limited to papers written in English. The search was conducted in November 2023, and the results were filtered to include only papers that were published between 2018 and 2023.
+This literature search was completed using the databases IEEE Xplore, Google Scholar, ACM Digital Library, and ScienceDirect. Search terms such as "ASL fingerspelling recognition", "Deep learning for ASL recognition",  "ASL recognition with CNN", "Accuracy of ASL recognition models", "Latest trends in ASL recognition", and "ASL recognition in real-time" were used alone and in conjunction with boolean operators "AND", "OR" to refine the search results. The search was limited to papers published in the last 5 years, and only peer-reviewed journal articles, conference papers, and high quality theses were considered. The search was also limited to papers written in English. The search was conducted in between November and December 2023, and the results were filtered to include only papers that were published between 2018 and 2023.
+In addition to this search which was completed in order to find relevant literature, we also used the references of the papers that we found to find additional relevant literature, that dates further back in order to substantiate our historical context
 \subsection{Literature Evaluation}
 Of the literature that fit out search criteria, we selected the most relevant papers based on the following criteria: the relevance to the research questions, papers that specifically address ASL fingerspelling, machine learning models in sign language interpretation, papers that used widely recognized datasets relevant to ASL recognition, we chose to exclude editorials, opinion pieces, and non-peer reviewed articles. Papers also required a clear methodology, defined objectives and robust data analysis. Papers with high citation counts were also given preference.
-\paragraph{Organizing and Categorizing}
-This subsection describes how the selected literature was organized and categorized, providing the basis for a comprehensive synthesis.
 
-\paragraph{Comparative Analysis}
-A detailed comparative analysis of the methodologies and findings of the selected studies is presented here, highlighting similarities and differences in approaches.
-
-\paragraph{Gaps and Trends}
-This part identifies any gaps in the current research landscape and notes emerging trends in ASL fingerspelling recognition technology.
-
-\paragraph{Conclusions and Narrative}
-The conclusions drawn from the comparative analysis and their relation to the original research questions are discussed here, forming a narrative that captures the current state of the field.
-
-\paragraph{Visual Representation and Critical Evaluation}
+Only papers that were published the aim of a newly developed application of a model for sign language/fingerspelling for the first time between 2018 and 2023 were considered.
 
 \begin{landscape}
     \input{literature_results.tex}
 \end{landscape}
-
-\subsection{Report Structure}
-- what is the structure of the report? (e.g., introduction, literature review, etc.) (aka roadmap?)
-
-\subsection{Conclude Introduction}
 
 \begin{itemize}
     \item By understanding, the insight gained from this review will be used to inform the design and implementation of our own model.
     \item * evidence based approach is neccessary to be impactful *
 
 \end{itemize}
-\section{Historical Context} % RQ-7
+
+\section{Historical Context (RQ-7)}
+
 \begin{itemize}
-    \item Evolution of ASL fingerspelling recognition
-    \item Major milestones and breakthroughs
+    \item Provide a brief overview of the evolution of ASL fingerspelling recognition.
+    \item Highlight key milestones and breakthroughs in the field's history.
+    \item Connect historical developments to current trends and future directions.
+\end{itemize}
+Early approaches to sign language recognition used robotic like data/power gloves which were wired, with sensors to capture hand movements and gestures \cite{saeedSystematicReviewSystemsBased2022}. They aimed to record the finger position and flexion in order to classify shapes. These approaches were limited by the need for specialized hardware and the inability to capture facial expressions and other non-manual markers. Rule-based classifiers did the legwork by detecting specific input pattern of sensors to an output by programmatic rules. This approach was not practical or user-friendly.
+
+% early Machine learning
+The move to machine learning was occuring in parallel to the hardware based approaches, as
+vision-based approaches were developed to overcome the limitations of the hardware based approaches and was instrumental in the development of sign language recognition. This approach used computer vision techniques to detect and track the hand and fingers. They were able to capture more information than the hardware based approaches, but were limited by the need for a controlled environment and the inability to capture facial expressions and other non-manual markers, just as the hardware based approaches were. At this stage, there were no large datasets developed, and the datasets that were available were not standardized, and were not publicly available. The vocabulary was relatively small \cite{vonagrisRecentDevelopmentsVisual2008}, which meant that the recognition was limited to a small number of signs. The recognition was also limited to a single signer, and was not robust to variations in lighting, hand orientation, and background noise.
+
+A great deal of focus was on feature extraction and classification, various algorithms were being pursued to extract hand features like posture. Hidden Markov Models (HMMs) were used to solve this temporal sequential task, where each sign or gesture is defined by the transition from one state to another. HMMs use the transition state to understand meaning. This approach was limited by the need for a large amount of data to train the model \cite{vonagrisRecentDevelopmentsVisual2008}.
+
+Another leap with vision was the usage of support vector machines (SVMs) to together with HMMs to enhance classification. SVMs were more effective at classifying spatial features such as hand shape and geolocation of digits, and videos that have depth, where gestures or shapes could look similar in 2D or 3D \cite{voglerParallelHiddenMarkov1999a}.
+
+% Machine learning
+As we move around the late 00's, a significant feat was neural networks such as used in \cite{munibAmericanSignLanguage2007b}, which used a 3-layer network with backpropagation and Hough transform. Although 92.3\% accuracy was achieved, this was still comparable to models using SVMs and HMMs, as well as the hardware based approaches before. The dataset was still limiting, with" 300 samples of hand sign images; 15 images for each sign." \cite{munibAmericanSignLanguage2007b}.
+
+Perhaps the greatest leap was the rise of deep learning, as neural networks got deeper in terms of model layering. Image and video processing research as a whole was in full swing, convolutional neural networks (CNNs), recurrent neural networks (RNNS), and Long short-term memory (LSTMS), were a few which had significant impact. CNNs were adept at automatically extracting and learning
+
+% Deep learning
+
+Yann Lecun is credited with setting the precedence of CNNs in 1998, with the LeNet-5 architecture \cite{lecunGradientbasedLearningApplied1998}. This was a significant leap in the field of computer vision, and was the first time that a model was able to learn features automatically, which is why due to greatly increased GPU processing power, CNNs came back into the fold at the 2012 ImageNet challenge \cite{krizhevskyImageNetClassificationDeep2012}. CNNs are ideal and particularly adept at processing data that is grid-like, as in images that have dimensions.  A series of layers are used to extract and identify features by breaking down the image into smaller parts, understanding that, and over and over, and combining them to understand the whole image. Functions and pooling layers are used to optimize the output for classification.
+
+RNNs are a type of neural network that are adept at processing sequential data, such as text, audio, and video. They are able to remember previous inputs and use that information recurrently, because the network has a directed cycle network, meaning information can persist inside the network. This is particularly useful for ASL recognition, as the signs are sequential, and the order of the signs is important.
+
+LSTMs are a type of RNN that are able to remember information for long periods of time, and are able to overcome the vanishing gradient problem that is common in RNNs.
+
+% Kinect and other hardware is more frameworky?
+
+While these models and approaches were valid for challenge of American Sign Language, commonly fingerspelling isn't factored in, and these model types struggle to perform well on fingerspelling. This is because fingerspelling is a sequential task, and the order of the signs is important.
+
+Currently, the experimental methods are Connectionist Temporal Classification \cite{gravesConnectionistTemporalClassification, shiAmericanSignLanguage2018}, Attention \cite{bahdanauNeuralMachineTranslation2016}, Transformers \cite{vaswaniAttentionAllYou2023}, and using a language model to improve accuracy.
+
+\section{Methods and Techniques (RQ-1, RQ-2, RQ-3)}
+
+\begin{itemize}
+    \item Offer an overview of the various methods used in ASL fingerspelling recognition.
+    \item Discuss Image/Video-based methods, Framework-based approaches (e.g., MediaPipe), and Hybrid methods in detail.
+    \item Include a discussion of common evaluation metrics and their relevance to different models and conditions.
 \end{itemize}
 
-\section{Methods and Techniques} % RQ-1, RQ-2, RQ-3
+\subsection{Transformers}
+
+squeezeformers
+
+\subsection{Attention}
+multi-head attention, self-attention, and cross-attention
+
+\subsection{CTC}
+
+
+\subsection{Beam Search}
+
+\subsection{Encoder/Decoder}
+
+\section{Comparative Analysis of Machine Learning Models (RQ-1)}
+
 \begin{itemize}
-    \item Overview of methods used in the literature
-    \item Image/Video-based Approaches
-    \item Framework-based Approaches (e.g., MediaPipe)
-    \item Hybrid methods
-    \item Evaluation metrics commonly used
+    \item Compare different machine learning models, specifically CNNs, RNNs, and Transformers, in the context of ASL fingerspelling recognition.
+    \item Discuss the strengths and weaknesses of each model in detail.
 \end{itemize}
 
-\section{Challenges in ASL Fingerspelling Recognition} % RQ-5, RQ-6
+\section{Performance Evaluation and Model Suitability (RQ-2, RQ-3)}
+
 \begin{itemize}
-    \item Technical challenges (e.g., diverse handshapes, background noise)
-    \item Data challenges (e.g., lack of large labeled datasets)
-    \item Real-world challenges (e.g., different lighting conditions, user variability)
+    \item Assess the performance of these models in terms of accuracy, processing speed, and reliability.
+    \item Discuss how dataset characteristics influence model performance.
 \end{itemize}
 
-\section{Overcoming Obstacles} % RQ-5
+\section{Challenges in ASL Fingerspelling Recognition (RQ-5, RQ-6)}
+
 \begin{itemize}
-    \item Techniques to enhance accuracy
-    \item Data augmentation strategies
-    \item Transfer learning and pre-trained models
+    \item Identify and discuss the technical, data, and real-world challenges in ASL fingerspelling recognition.
+    \item Include a discussion on how environmental variables, such as hand orientation and background noise, affect model performance.
 \end{itemize}
 
-\section{State of the Art/Real-World Applications} % RQ-4, RQ-7
+\section{Overcoming Obstacles (RQ-5)}
+
 \begin{itemize}
-    \item Most recent and influential works in the field
-    \item Comparison of different methods' performance
-    \item Real-world applications and success stories
+    \item Propose techniques to enhance accuracy and address the challenges identified in the previous section.
+    \item Discuss data augmentation strategies and the use of transfer learning and pre-trained models.
 \end{itemize}
 
-\section{Future Directions and Open Challenges} % RQ-7
+\section{State of the Art and Real-World Applications (RQ-4, RQ-7)}
+
 \begin{itemize}
-    \item Emerging trends in the field
-    \item Areas that need further research
-    \item Potential impact of advancements (e.g., in deep learning)
+    \item Present the most recent and influential works in ASL fingerspelling recognition.
+    \item Compare the performance of different methods discussed in the literature.
+    \item Highlight real-world applications, with a focus on practical aspects like kiosk systems.
+\end{itemize}
+
+\section{Future Directions and Open Challenges (RQ-7)}
+
+\begin{itemize}
+    \item Discuss emerging trends in the field of ASL fingerspelling recognition.
+    \item Identify areas that require further research and exploration.
+    \item Explore the potential impact of future advancements, particularly in deep learning.
 \end{itemize}
 
 \section{Ethical and Societal Considerations}
-\begin{itemize}
-    \item Data privacy concerns
-    \item Bias and fairness in ASL recognition models
-    \item Implications for the deaf and hard of hearing community
 
+\begin{itemize}
+    \item Address ethical considerations, including data privacy concerns.
+    \item Discuss issues related to bias and fairness in ASL recognition models.
+    \item Examine the implications of ASL fingerspelling recognition technology for the deaf and hard of hearing community.
 \end{itemize}
 
-\section{Main Conclusion}
+\section{Conclusion}
+
 \begin{itemize}
-    \item Summary of the main findings of the review
-    \item Reiteration of the importance of the topic
+    \item Summarize the main findings related to each research question discussed throughout the report.
+    \item Reiterate the importance of the topic and its potential impact on the field of ASL fingerspelling recognition.
 \end{itemize}
