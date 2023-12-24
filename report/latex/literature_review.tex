@@ -57,11 +57,9 @@ ASL communicates through a variety of means including gestures, non-manual marke
 
 \subsubsection{Literature Identification}
 This literature search was completed using the databases IEEE Xplore, Google Scholar, ACM Digital Library, and ScienceDirect. Search terms such as "ASL fingerspelling recognition", "Deep learning for ASL recognition",  "ASL recognition with CNN", "Accuracy of ASL recognition models", "Latest trends in ASL recognition", and "ASL recognition in real-time" were used alone and in conjunction with boolean operators "AND", "OR" to refine the search results. The search was limited to papers published in the last 5 years, and only peer-reviewed journal articles, conference papers, and high quality theses were considered. The search was also limited to papers written in English. The search was conducted in between November and December 2023, and the results were filtered to include only papers that were published between 2018 and 2023.
-In addition to this search which was completed in order to find relevant literature for the model architecture comparison, we also used the references of the papers that we selected to find additional relevant literature, that dates further back in order to substantiate our historical context and technical background.
+In addition to this search which was completed in order to find relevant literature for the model architecture comparison, the references of the papers that were selected were used to find additional relevant literature, that dates further back in order to substantiate our historical context and technical background.
 \subsubsection{Literature Evaluation}
-Of the literature that fit out search criteria, we selected the most relevant papers based on the following criteria: the relevance to the research questions, papers that specifically address ASL fingerspelling, ML models in sign language interpretation, papers that used widely recognized datasets relevant to ASL recognition, we chose to exclude editorials, opinion pieces, and non-peer reviewed articles. Papers also required a clear methodology, defined objectives and robust data analysis. Papers with high citation counts were also given preference.
-
-Only papers that were published the aim of a newly developed application of a model for sign language/fingerspelling for the first time between 2018 and 2023 were considered.
+Of the literature that fit out search criteria, the most relevant papers were selected based on the following criteria: the relevance to the research questions, papers that specifically address ASL fingerspelling, ML models in sign language interpretation, papers that used widely recognized datasets relevant to ASL recognition, editorials, opinion pieces, and non-peer reviewed articles were excluded. Papers that were preferred had a clear methodology, defined objectives and analysis of data. Papers with high citation counts were also given preference. Papers that were selected were read in full, and the results were summarized in a table, which is included in the results section.
 
 \begin{itemize}
     \item By understanding, the insight gained from this review will be used to inform the design and implementation of our own model.
@@ -69,25 +67,25 @@ Only papers that were published the aim of a newly developed application of a mo
 
 \end{itemize}
 
-\subsection{Historical Context (RQ-7)}
+\subsection{Historical Context (RQ-7)} % https://www.canterbury.ac.uk/asset-library/library/harvard.pdf 
 
 \begin{itemize}
     \item Provide a brief overview of the evolution of ASL fingerspelling recognition.
     \item Highlight key milestones and breakthroughs in the field's history.
     \item Connect historical developments to current trends and future directions.
 \end{itemize}
-Early approaches to sign language recognition used robotic like data/power gloves which were wired, with sensors to capture hand movements and gestures \cite{saeedSystematicReviewSystemsBased2022}. They aimed to record the finger position and flexion in order to classify shapes. These approaches were limited by the need for specialized hardware and the inability to capture facial expressions and other non-manual markers. Rule-based classifiers did the legwork by detecting specific input pattern of sensors to an output by programmatic rules. This approach was not practical or user-friendly.
+
+Early approaches to sign language recognition, according to \cite{saeedSystematicReviewSystemsBased2022} used robotic like data/power gloves which were wired, with sensors to capture hand movements and gestures. They aimed to record the finger position and flexion in order to classify shapes. These approaches were limited by the need for specialized hardware and the inability to capture facial expressions and other non-manual markers. Rule-based classifiers did the legwork by detecting specific input pattern of sensors to an output by programmatic rules. This approach was not practical or user-friendly.
 
 % early Machine learning
-The move to ML was occuring in parallel to the hardware based approaches, as
-vision-based approaches were developed to overcome the limitations of the hardware based approaches and was instrumental in the development of sign language recognition. This approach used computer vision techniques to detect and track the hand and fingers. They were able to capture more information than the hardware based approaches, but were limited by the need for a controlled environment and the inability to capture facial expressions and other non-manual markers, just as the hardware based approaches were. At this stage, there were no large datasets developed, and the datasets that were available were not standardized, and were not publicly available. The vocabulary was relatively small \cite{vonagrisRecentDevelopmentsVisual2008}, which meant that the recognition was limited to a small number of signs. The recognition was also limited to a single signer, and was not robust to variations in lighting, hand orientation, and background noise.
+The move to ML was occuring in parallel to hardware based approaches, as vision-based approaches were developed to overcome the limitations of the hardware based approaches and was instrumental in the development of sign language recognition. This approach used computer vision techniques to detect and track the hand and fingers. They were able to capture more information than the hardware based approaches, but were limited by the need for a controlled environment and the inability to capture facial expressions and other non-manual markers, just as the hardware based approaches were. At this stage, there were no large datasets developed, and the datasets that were available were not standardized, and were not publicly available. The vocabulary was relatively small \cite{vonagrisRecentDevelopmentsVisual2008}, which meant that the recognition was limited to a small number of signs. The recognition was also limited to a single signer, and was not robust to variations in lighting, hand orientation, and background noise.
 
 A great deal of focus was on feature extraction and classification, various algorithms were being pursued to extract hand features like posture. Hidden Markov Models (HMMs) were used to solve this temporal sequential task, where each sign or gesture is defined by the transition from one state to another. HMMs use the transition state to understand meaning. This approach was limited by the need for a large amount of data to train the model \cite{vonagrisRecentDevelopmentsVisual2008}.
 
 Another leap with vision was the usage of support vector machines (SVMs) to together with HMMs to enhance classification. SVMs were more effective at classifying spatial features such as hand shape and geolocation of digits, and videos that have depth, where gestures or shapes could look similar in 2D or 3D \cite{voglerParallelHiddenMarkov1999a}.
 
 % Machine learning
-As we move around the late 00's, a significant feat was neural networks such as used in \cite{munibAmericanSignLanguage2007b}, which used a 3-layer network with backpropagation and Hough transform. Although 92.3\% accuracy was achieved, this was still comparable to models using SVMs and HMMs, as well as the hardware based approaches before. The dataset was still limiting, with" 300 samples of hand sign images; 15 images for each sign." \cite{munibAmericanSignLanguage2007b}.
+Moving around the late 00's, a significant feat was neural networks such as used in \cite{munibAmericanSignLanguage2007b}, which used a 3-layer network with backpropagation and Hough transform. Although 92.3\% accuracy was achieved, this was still comparable to models using SVMs and HMMs, as well as the hardware based approaches before. The dataset was still limiting, with" 300 samples of hand sign images; 15 images for each sign." \cite{munibAmericanSignLanguage2007b}.
 
 Perhaps the greatest leap was the rise of deep learning, as neural networks got deeper in terms of model layering. Image and video processing research as a whole was in full swing, convolutional neural networks (CNNs), recurrent neural networks (RNNS), and Long short-term memory (LSTMS), were a few which had significant impact. CNNs were adept at automatically extracting and learning
 
@@ -117,9 +115,9 @@ Currently, the experimental methods are Connectionist Temporal Classification (C
     \item Include a discussion of common evaluation metrics and their relevance to different models and conditions.
 \end{itemize}
 
-\subsubsection{Image-based Methods}
+\subsubsection{Image-based Methods} % citation needed
 The system performs static feature extraction on each individual image. Information from the image such as position of hand, texture, shape, colour, and other features are extracted and used to classify the image. The system doesn't identify or understand the temporal nature of the task, and is limited to the information that can be extracted from the image. ML models such as CNNs and SVMs are used to classify the extracted features to specific letters. This approach wouldn't be suitable for real-time recognition.
-\subsubsection{Video-based Methods}
+\subsubsection{Video-based Methods} % citation needed
 This time, the system performs sequential feature extraction, by extracting temporal features the models can understand the transitions between letters. This is critical for differentiating letters that might be similar when static, or depending on the orientation. For instance, the letter "h" and "u" have the same hand shape, but differ in meaning depending on orientation. Models typically include RNNs and LSTMs which are  particularly useful at retaining information over time, which are important for a real-time sequential task, that must understand the order of the letters.
 
 \subsubsection{Framework-based Methods and Tools}

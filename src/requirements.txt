@@ -1,0 +1,7 @@
+torch
+pyarrow
+pandas
+mediapipe
+libgl1-mesa-glx
+scikit-image
+tqdm

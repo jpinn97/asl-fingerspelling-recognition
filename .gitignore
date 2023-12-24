@@ -16,3 +16,10 @@
 *.dvi
 *.xdv
 *run.xml
+
+# Dataset
+*.parquet
+*.tfrecord
+
+# Jupyter Notebook
+.ipynb_checkpoints
