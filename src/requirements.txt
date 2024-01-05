@@ -1,7 +1,13 @@
-torch
-pyarrow
 pandas
+pyarrow.parquet
+tensorflow
+numpy
+tqdm
+pathlib
+scikit-image
+
+torch
+torchdata
+
 mediapipe
 libgl1-mesa-glx
-scikit-image
-tqdm
