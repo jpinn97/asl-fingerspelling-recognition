@@ -24,7 +24,8 @@ jobs:
       - name: Create HTML page to embed PDF
         run: |
           mkdir -p report/poster/html
-          echo '<!DOCTYPE html><html><head><title>PDF Poster</title></head><body><iframe src="./report/poster/poster.pdf" width="100%" height="100%"></iframe></body></html>' > report/poster/html/index.html
+          cp report/poster/poster.pdf ./report/poster/html
+          echo '<!DOCTYPE html><html><head><title>PDF Poster</title></head><body><iframe src="./report/poster/html/poster.pdf" width="100%" height="100%"></iframe></body></html>' > report/poster/html/index.html
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
@@ -33,11 +34,6 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           path: 'report/poster/html'
-          
-      - name: Upload pdf
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: 'report/poster/poster.pdf'
 
       - name: Deploy to GitHub Pages
         id: deployment
