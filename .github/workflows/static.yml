@@ -24,8 +24,8 @@ jobs:
       - name: Create HTML page to embed PDF
         run: |
           mkdir -p report/poster/html
-          cp report/poster/poster.pdf ./report/poster/html
-          echo '<!DOCTYPE html><html><head><title>PDF Poster</title></head><body><iframe src="./report/poster/html/poster.pdf" width="100%" height="100%"></iframe></body></html>' > report/poster/html/index.html
+          cp report/poster/poster.pdf report/poster/html
+          echo '<!DOCTYPE html><html><head><title>PDF Poster</title></head><body><iframe src="poster.pdf" width="100%" height="100%"></iframe></body></html>' > report/poster/html/index.html
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
