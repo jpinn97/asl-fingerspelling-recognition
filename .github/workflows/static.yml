@@ -1,4 +1,4 @@
-name: Deploy PDF as HTML to Pages
+name: Deploy static content to Pages
 
 on:
   push:
@@ -15,19 +15,16 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  convert_and_deploy:
-    runs-on: ubuntu-22.04
+  deploy:
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Convert PDF to HTML using Pandoc
-        uses: docker://pandoc/core:latest
-        with:
-          args: >-
-            --standalone
-            --output=index.html
-            report/poster/poster.pdf
+      - name: Create HTML page to embed PDF
+        run: |
+          mkdir -p report/poster/html
+          echo '<!DOCTYPE html><html><head><title>PDF Poster</title></head><body><iframe src="./poster.pdf" width="100%" height="100%"></iframe></body></html>' > report/poster/html/index.html
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
@@ -35,7 +32,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: '.'
+          path: 'report/poster/html'
 
       - name: Deploy to GitHub Pages
         id: deployment
