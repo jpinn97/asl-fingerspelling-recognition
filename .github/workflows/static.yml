@@ -29,10 +29,15 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v4
 
-      - name: Upload artifact
+      - name: Upload html
         uses: actions/upload-pages-artifact@v3
         with:
           path: 'report/poster/html'
+          
+      - name: Upload pdf
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: 'report/poster/poster.pdf'
 
       - name: Deploy to GitHub Pages
         id: deployment
