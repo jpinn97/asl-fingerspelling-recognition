@@ -55,7 +55,7 @@
 
 \subtitle{A Literature Review and Project Application}
 
-\author{Jamie Pinnington\textsuperscript{1,2}, Amina Souag\textsuperscript{2,3}, Hannan Azhar\textsuperscript{2,3}}  % Author(s)
+\author{Jamie Pinnington\texorpdfstring{\textsuperscript{1,2}}{1,2}, Amina Souag\texorpdfstring{\textsuperscript{2,3}}{2,3}, Hannan Azhar\texorpdfstring{\textsuperscript{2,3}}{2,3}}  % Author(s)
 
 \institute{\textsuperscript{1}Computer Science, \textsuperscript{2}Canterbury Christ Church University, \textsuperscript{3}School of Engineering, Technology and Design}  % Institution(s)
 
@@ -87,10 +87,30 @@
 
 			\begin{block}{Introduction}
 				\begin{itemize}
-					\item According to \cite{ethnologueAmericanSignLanguage2023,mitchellHowManyPeople2006}, there are at least 1 million if not more American Sign Language (ASL) users in the United States alone who are a part of the Deaf and Hard of Hearing (DHH) community.\\
-					\item Fingerspelling is a critical component of ASL and other sign languages, and is used to spell out words, names, and proper nouns that lack direct signs.\\
-					\item A new dataset release on Kaggle by Google \cite{kaggleAslFinger} has provided a new opportunity to explore how applying AI could improve, assist, and provide options to the lives of the DHH and the wider community? \\
+					\item According to \cite{ethnologueAmericanSignLanguage2023,mitchellHowManyPeople2006}, there are at least 1 million if not more American Sign Language (ASL) users in the United States alone who are a part of the Deaf and Hard of Hearing (DHH) community.
+				
+					\item Fingerspelling is a critical component of ASL and other sign languages, and is used to spell out words, names, and proper nouns that lack direct signs.
+				
+					\item Current recognition solutions for ASL, don't include fingerspelling, and typically don't work effectively in the real world.
+				
+					% Reduce space before the minipage
+					\vspace{-\baselineskip} 
+					\begin{minipage}{\textwidth}
+						\begin{minipage}{.75\textwidth}
+							\vspace{0pt} % Align the top of minipage with the item
+							\item Legal concerns from the largest and most used ChicagoWild/+ dataset, have made it difficult for commercial application.
+				
+							\item A new dataset released on Kaggle by Google \citep{kaggleAslFinger} has provided a new opportunity to explore how applying AI could improve, assist, and provide options to the lives of the DHH and the wider community?
+						\end{minipage}%
+						\begin{minipage}{.2\textwidth}
+							\vspace{0pt} % Align the top of minipage with the item
+							\includegraphics[width=2.5in]{qr_paper_v1.png}
+						\end{minipage}
+					\end{minipage}
+					% Adjust space after the minipage if needed
+					\vspace{-\baselineskip}
 				\end{itemize}
+				
 			\end{block}
 
 			%----------------------------------------------------------------------------------------
@@ -99,6 +119,40 @@
 
 
 			\begin{block}{Methodology}
+				\begin{figure}
+					\centering
+					\begin{subfigure}[t]{0.24\linewidth}
+						\includegraphics[width=\linewidth,valign=t]{ieee_xplore.png}
+					\end{subfigure}
+					\hfill % Add horizontal space
+					\begin{subfigure}[t]{0.24\linewidth}
+						\includegraphics[width=\linewidth,valign=t]{acm_4c_grad_pos.png}
+					\end{subfigure}
+					\hfill % Add horizontal space
+					\begin{subfigure}[t]{0.24\linewidth}
+						\includegraphics[width=\linewidth,valign=t]{ScienceDirect-Librarian-Promo-Toolkit_Logo.png}
+					\end{subfigure}
+					\hfill % Add horizontal space
+					\begin{subfigure}[t]{0.24\linewidth}
+						\includegraphics[width=\linewidth,valign=t]{scholar_logo_64dp.png}
+					\end{subfigure}
+				\end{figure}
+
+				\begin{minipage}{0.48\linewidth}
+					Technical Analysis
+					\begin{itemize}
+						\item Conducted
+						\item Item 2 in the first list
+					\end{itemize}
+				\end{minipage}
+				\hfill % Add horizontal space
+				\begin{minipage}{0.48\linewidth}
+					Background Research
+					\begin{itemize}
+						\item Item 1 in the second list
+						\item Item 2 in the second list
+					\end{itemize}
+				\end{minipage}
 			\end{block}
 
 			%----------------------------------------------------------------------------------------
