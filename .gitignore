@@ -16,6 +16,8 @@
 *.dvi
 *.xdv
 *run.xml
+*.nav
+*.snm
 
 # Dataset
 *.parquet
