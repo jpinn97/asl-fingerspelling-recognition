@@ -97,13 +97,13 @@
 					      \vspace{-\baselineskip}
 					      \begin{minipage}{\textwidth}
 						      \begin{minipage}{.75\textwidth}
-							      \vspace{0pt} % Align the top of minipage with the item
+							      \vspace{0pt}
 							      \item Legal concerns from the largest and most used ChicagoWild/+ dataset, have made it difficult for commercial application.
 
 							      \item A new dataset released on Kaggle by Google \citep{kaggleAslFinger} has provided a new opportunity to explore how applying AI could improve, assist, and provide options to the lives of the DHH and the wider community?
 						      \end{minipage}%
 						      \begin{minipage}{.2\textwidth}
-							      \vspace{0pt} % Align the top of minipage with the item
+							      \vspace{0pt}
 							      \includegraphics[width=2.5in]{qr_paper_v1.png}
 						      \end{minipage}
 					      \end{minipage}
@@ -222,7 +222,27 @@
 			%----------------------------------------------------------------------------------------
 
 			\begin{block}{Discussion}
+				\includegraphics[width=\linewidth]{mermaid-diagram-discussion.png}
 			\end{block}
+
+			%----------------------------------------------------------------------------------------
+			%	REFERENCES
+			%----------------------------------------------------------------------------------------
+
+			\begin{block}{References}
+				\fontsize{6}{10}\selectfont
+				\vspace{-1ex} % Pull up slightly
+				\bibliographystyle{elsarticle-harv}
+				\bibliography{../latex/library}
+			\end{block}
+
+			%----------------------------------------------------------------------------------------
+
+		\end{column}
+
+		\begin{column}{0.02\textwidth}\end{column} % Empty column for horizontal whitespace
+
+		\begin{column}{0.3\textwidth} % Start the second content column
 
 			%----------------------------------------------------------------------------------------
 			%	Graphics and Images Juice
@@ -235,42 +255,25 @@
 			\end{block}
 
 			%----------------------------------------------------------------------------------------
-
-		\end{column}
-
-		\begin{column}{0.02\textwidth}\end{column} % Empty column for horizontal whitespace
-
-		\begin{column}{0.3\textwidth} % Start the second content column
-
-			%----------------------------------------------------------------------------------------
 			%	CONCLUSIONS
 			%----------------------------------------------------------------------------------------
 
 			\begin{block}{Conclusions}
-				\begin{enumerate}
-					\item \alert{Opet volutpat ligula.} Duis semper lorem eget dui dignissim porttitor. Nulla facilisi. In ullamcorper lorem quis dolor iaculis nec egestas enim ultricies. Cras ut mauris elit, ut lacinia dui. Proin in ante et libero hendrerit iaculis.
-					\item \alert{Nulla eu erat a urna laoreet auctor id a turpis.} Nam mollis tristique neque eu luctus. Suspendisse rutrum congue nisi sed convallis.
-					\item \alert{Opet volutpat ligula.} Duis semper lorem eget dui dignissim porttitor. Nulla facilisi. In ullamcorper lorem quis dolor iaculis nec egestas enim ultricies. Cras ut mauris elit, ut lacinia dui. Proin in ante et libero hendrerit iaculis.
-				\end{enumerate}
-			\end{block}
-
-			%----------------------------------------------------------------------------------------
-			%	REFERENCES
-			%----------------------------------------------------------------------------------------
-
-			\begin{block}{References}
-				\tiny % Reduce font size
-				\vspace{-1ex} % Pull up slightly
-				\bibliographystyle{elsarticle-harv} % Bibliography style
-				\bibliography{../latex/library} % Bibliography file
-			\end{block}
-
-			%----------------------------------------------------------------------------------------
-			%	ACKNOWLEDGEMENTS
-			%----------------------------------------------------------------------------------------
-
-			\begin{block}{Acknowledgements}
-				\textbf{Nam mollis} tristique neque eu luctus. Suspendisse rutrum congue nisi sed convallis. Aenean id neque dolor. \textbf{Pellentesque habitant} morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+				\begin{minipage}{0.75\linewidth}
+					\begin{itemize}
+						\item CNNs, RNNs, LSTMs, and Transformers have shown promise in recognizing ASL fingerspelling.
+						\item Real-world challenges, including rapid signing, varied hand orientations, and diverse environmental conditions, pose substantial difficulties for current models.
+						\item Techniques such as data augmentation, transfer learning, and the use of pre-trained models are critical in overcoming these obstacles.
+						\item State-of-the-art methods are evolving, with recent developments in Transformers and Squeezeformer models, and real-world applications are expanding, notably in kiosk systems.
+					\end{itemize}
+					\alert{Model}: A combination of the state-of-the-art technologies would look like
+				\end{minipage}
+				\hfill
+				\begin{minipage}{0.24\linewidth}
+					\begin{figure}
+						\includegraphics[width=2in]{mermaid-diagram-conclusion.png}
+					\end{figure}
+				\end{minipage}
 			\end{block}
 
 			%----------------------------------------------------------------------------------------
@@ -283,7 +286,7 @@
 				\begin{figure}
 					\begin{subfigure}[t]{0.25\linewidth}
 						\centering
-						\includegraphics[width=2in,valign=t]{qr_online_v6.png}
+						\includegraphics[width=1.75in,valign=t]{qr_online_v6.png}
 					\end{subfigure}
 					\begin{subfigure}[t]{0.45\linewidth}
 						\begin{itemize}
@@ -294,7 +297,7 @@
 					\end{subfigure}
 					\begin{subfigure}[t]{0.25\linewidth}
 						\centering
-						\includegraphics[width=2in,valign=t]{qr_linked_v5.png}
+						\includegraphics[width=1.75in,valign=t]{qr_linked_v5.png}
 					\end{subfigure}
 				\end{figure}
 			\end{block}
