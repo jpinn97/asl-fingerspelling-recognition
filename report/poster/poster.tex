@@ -260,13 +260,13 @@
 
 			\begin{block}{Conclusions}
 				\begin{minipage}{0.75\linewidth}
-					\begin{itemize}
-						\item CNNs, RNNs, LSTMs, and Transformers have shown promise in recognizing ASL fingerspelling.
+					\begin{enumerate}
+						\item CNNs, RNNs, LSTMs, and their variants are not sufficient for ASL fingerspelling recognition.
 						\item Real-world challenges, including rapid signing, varied hand orientations, and diverse environmental conditions, pose substantial difficulties for current models.
 						\item Techniques such as data augmentation, transfer learning, and the use of pre-trained models are critical in overcoming these obstacles.
-						\item State-of-the-art methods are evolving, with recent developments in Transformers and Squeezeformer models, and real-world applications are expanding, notably in kiosk systems.
-					\end{itemize}
-					\alert{Model}: A combination of the state-of-the-art technologies would look like
+						\item State-of-the-art Models are variants of Transformer.
+					\end{enumerate}
+					\alert{Model}: The proposed model architecture includes Transformer/Squeezeformer + CTC + Multi-headed Attention + Beam Search.
 				\end{minipage}
 				\hfill
 				\begin{minipage}{0.24\linewidth}
