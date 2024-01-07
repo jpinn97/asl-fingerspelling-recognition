@@ -73,11 +73,13 @@
 
 \begin{document}
 
+\setbeamertemplate{caption}[numbered]
+
 \begin{frame}[t] % The whole poster is enclosed in one beamer frame, the [t] parameter aligns everything to the top
 
 	\begin{columns}[t] % Begin multi-column layout, the [t] parameter aligns each column's content to the top
 
-		\begin{column}{0.02\textwidth}\end{column} % Empty column for horizontal whitespace
+		\begin{column}{0.005\textwidth}\end{column} % Empty column for horizontal whitespace
 
 		\begin{column}{0.3\textwidth} % Start the first content column
 
@@ -169,9 +171,11 @@
 			%----------------------------------------------------------------------------------------
 
 			\begin{block}{Results: Figure}
+				\setcounter{figure}{0}
 				\begin{minipage}{\linewidth}
 					\begin{figure}
 						\includegraphics[width=\linewidth]{Figure_1.png}
+						\caption{Distribution of Library Catalog and Item Type (2018-2023)}
 					\end{figure}
 				\end{minipage}
 				%\\ % Add a line break here
@@ -187,7 +191,7 @@
 
 		\end{column} % End of the first column
 
-		\begin{column}{0.02\textwidth}\end{column} % Empty column for horizontal whitespace
+		\begin{column}{0.005\textwidth}\end{column} % Empty column for horizontal whitespace
 
 		\begin{column}{0.3\textwidth}
 
@@ -198,22 +202,23 @@
 
 			\begin{block}{Results: Table}
 				\begin{footnotesize}
-					\begin{tabular}{p{0.15\textwidth} p{0.65\textwidth} p{0.1\textwidth}}
-						\toprule
-						Model                         & Key Insights and Performance                                                                                   & Citation                                           \\
-						\midrule
+					\begin{table}[H]
+						\begin{tabular}{p{0.15\textwidth} p{0.65\textwidth} p{0.1\textwidth}}
+							\toprule
+							Model                         & Key Insights and Performance                                                                                   & Citation                                           \\
+							\midrule
 
-						RNN, LSTM, Attention          & Recognition and translation of ASL glosses; GRR: 86\%, GER: 23\%. Challenges in real-time recognition.         & \cite{skumarTimeSeriesNeural2018}                  \\
-						CNN, SSD, FCN                 & High accuracy in vision-based translation; Accuracy: 92.21\%. Robustness in ASL recognition.                   & \cite{abiyevReconstructionConvolutionalNeural2020} \\
-						Transformers, CTC             & State-of-the-art results in ASL recognition; WER, BLEU-4 scores. Translation challenges addressed.             & \cite{cihancamgozSignLanguageTransformers2020}     \\
-						ResNet, Bi-LSTM               & Recognition using optical flow; Letter accuracy: 57\%. Focus on 'wild' conditions and occlusions.              & \cite{kabadeAmericanSignLanguage2023}              \\
-						2D/3D-CNN, Bi-LSTM            & Superior detection in diverse environments; AP@IoU: 0.495, MSA: 0.386. Fine-grained handshapes analysis.       & \cite{shiFingerspellingDetectionAmerican2021}      \\
-						Fine-Grained Visual Attention & Improved recognition with Transformer model; Letter Accuracy: 46.96\% (dev). Addressing video data challenges. & \cite{gajurelFineGrainedVisualAttention2021}       \\
+							RNN, LSTM, Attention          & Recognition and translation of ASL glosses; GRR: 86\%, GER: 23\%. Challenges in real-time recognition.         & \cite{skumarTimeSeriesNeural2018}                  \\
+							CNN, SSD, FCN                 & High accuracy in vision-based translation; Accuracy: 92.21\%. Robustness in ASL recognition.                   & \cite{abiyevReconstructionConvolutionalNeural2020} \\
+							Transformers, CTC             & State-of-the-art results in ASL recognition; WER, BLEU-4 scores. Translation challenges addressed.             & \cite{cihancamgozSignLanguageTransformers2020}     \\
+							ResNet, Bi-LSTM               & Recognition using optical flow; Letter accuracy: 57\%. Focus on 'wild' conditions and occlusions.              & \cite{kabadeAmericanSignLanguage2023}              \\
+							2D/3D-CNN, Bi-LSTM            & Superior detection in diverse environments; AP@IoU: 0.495, MSA: 0.386. Fine-grained handshapes analysis.       & \cite{shiFingerspellingDetectionAmerican2021}      \\
+							Fine-Grained Visual Attention & Improved recognition with Transformer model; Letter Accuracy: 46.96\% (dev). Addressing video data challenges. & \cite{gajurelFineGrainedVisualAttention2021}       \\
 
-						\bottomrule
-					\end{tabular}
-					\centering\textbf{Extremely Condensed Summary of ASL Fingerspelling Recognition Models (2018-2023)}
-
+							\bottomrule
+						\end{tabular}
+						\caption{Extremely Condensed Summary of ASL Fingerspelling Recognition Models (2018-2023)}
+					\end{table}
 				\end{footnotesize}
 			\end{block}
 
@@ -222,7 +227,10 @@
 			%----------------------------------------------------------------------------------------
 
 			\begin{block}{Discussion}
-				\includegraphics[width=\linewidth]{mermaid-diagram-discussion.png}
+				\begin{figure}
+					\includegraphics[width=0.95\linewidth]{mermaid-diagram-discussion.png}
+					\caption{Generalized Overview of Data Analysis of Results (2018-2023)}
+				\end{figure}
 			\end{block}
 
 			%----------------------------------------------------------------------------------------
@@ -240,7 +248,7 @@
 
 		\end{column}
 
-		\begin{column}{0.02\textwidth}\end{column} % Empty column for horizontal whitespace
+		\begin{column}{0.005\textwidth}\end{column} % Empty column for horizontal whitespace
 
 		\begin{column}{0.3\textwidth} % Start the second content column
 
@@ -251,6 +259,7 @@
 			\begin{block}{Technology and Tools Overview}
 				\begin{figure}
 					\includegraphics[width=\linewidth]{drawing.png}
+					\caption{Technology and Tools Overview}
 				\end{figure}
 			\end{block}
 
@@ -286,7 +295,7 @@
 				\begin{figure}
 					\begin{subfigure}[t]{0.25\linewidth}
 						\centering
-						\includegraphics[width=1.75in,valign=t]{qr_online_v6.png}
+						\includegraphics[width=1.5in,valign=t]{qr_online_v6.png}
 					\end{subfigure}
 					\begin{subfigure}[t]{0.45\linewidth}
 						\begin{itemize}
@@ -297,7 +306,7 @@
 					\end{subfigure}
 					\begin{subfigure}[t]{0.25\linewidth}
 						\centering
-						\includegraphics[width=1.75in,valign=t]{qr_linked_v5.png}
+						\includegraphics[width=1.5in,valign=t]{qr_linked_v5.png}
 					\end{subfigure}
 				\end{figure}
 			\end{block}
@@ -305,7 +314,7 @@
 			%----------------------------------------------------------------------------------------
 		\end{column} % End of the second column
 
-		\begin{column}{0.02\textwidth}\end{column} % Empty column for horizontal whitespace
+		\begin{column}{0.005\textwidth}\end{column} % Empty column for horizontal whitespace
 
 	\end{columns} % End of all the columns in the poster
 
