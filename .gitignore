@@ -26,3 +26,6 @@
 
 # Jupyter Notebook
 .ipynb_checkpoints
+
+# Ignore PDF generated from source, as we now manually modify product.
+poster.pdf
