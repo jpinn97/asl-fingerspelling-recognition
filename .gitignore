@@ -29,3 +29,4 @@
 
 # Ignore PDF generated from source, as we now manually modify product.
 poster.pdf
+poster_TEST.pdf
