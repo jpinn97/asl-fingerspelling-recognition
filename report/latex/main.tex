@@ -18,6 +18,9 @@
 \usepackage{pdfpages}
 \usepackage{lettrine}
 \usepackage{tabularx, booktabs}
+\usepackage{jupynotex}
+\usepackage{minted}
+
 
 \usetikzlibrary{calc, arrows.meta,shapes.geometric,positioning,shadows.blur,trees}
 
@@ -80,17 +83,65 @@ contents={%
 
 \section{Introduction:}
 
-\lettrine[lines=2]{T}{his}
+\lettrine[lines=2]{T}{his} Individual Project documents the conceptualization and development of a machine learning model for translating American Sign Language (ASL) fingerspelling videos into text. The foremost aim of the project, part A, is to create a model that can interpret ASL fingerspelling video and predict the corresponding text to a realistic degree. Given the success of part A, a smaller secondary objective part B is to develop a user-friendly application that allows the user to input ASL fingerspelling videos and receive the corresponding text output. The project outcomes are two-fold, a machine learning model and a user-friendly proof-of-concept that serves academia.
 
-\section{Literature Review:}
+The field of AI has seen rapid development in image and video recognition, however, the most prominently researched topics related to fingerspelling is automatic-speech-recognition (ASR). Interpreting sign language, gestures, and fingerspelling are even smaller niches, and development in these areas is lower. Leading figures such as Bowen Shi \cite{shiFingerspellingDetectionAmerican2021} provided the first attempts to recognize fingerspelling in "wild" environments.
+
+Research for ASL fingerspelling recognition is lacklustre because of its niche topic, and small amount of overall ASL users worldwide, perhaps as high as 2 million \cite{mitchellHowManyPeople2006, ethnologueAmericanSignLanguage2023}. 
+
+Furthermore, the complexity of ASL fingerspelling recognition which has a high degree of variability in hand shape, movement, and speed of signing, and much more characteristics makes recognition a challenging task. This requires a large dataset and a robust model to solve this task, and over the years created datasets are small, lack diversity, and are not developed realistically to a real-world environments.
+
+The purpose of this project is to make use of emerging technologies and datasets in order to produce a model that can further the academic field, and improve accessibility for Deaf and Hard of Hearing individuals. The idea is that for a lot of users fingerspelling is faster than typing on a keyboard or smartphone, and so could provide a means of alternative smoother communication between Deaf and Hard of Hearing individuals, and technology. The model produced in this project will be a proof-of-concept, and will not be a final product, but will serve as a stepping stone for future research and development in the field. 
+
+The Cross-Industry Standard Process for Data Mining \cite{hotzWhatCRISPDM2018}, is a widely used methodology for data mining and artificial intelligence projects. It involves 6 steps that in practice are iterative, and can be revisited at any time as needed. The steps are Business Understanding, Data Understanding, Data Preparation, Modelling, Evaluation, and Deployment.
+
+Over the course of this document, we will document a literature review to discover our roots, following with the CRISP-DM methodology outlining our strategic and technical decisions. In here, expect to find a detailed explanation of the project's development, the model's architecture, and the application's design. We will also discuss the project's management, risks involves, milestones achieved, and state the achieved outcome of the project.
+
+% MAIN CHAPTERS
+
+\section{Chapter 1: Background and Related Work}
 \input{literature_review}
+\section{Chapter 3: Methodology}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\textwidth]{images/CRISP-DM-process-model_W640.jpg}
+    \caption{CRISP-DM Methdology\cite{lofstromUtilizingDiversityPerformance2009}}
+    \label{fig:CRISP-DM Methdology}
+\end{figure}
+
+The CRoss Industry Standard Process for Data Mining (CRISP-DM) is a widely used methodology that provides a structured approach to undertaking data science projects from a process perspective. In this task, we emphazise the usage of CRISP-DM methodology as a preferable process over a standalone software development methodology, this is because the project requires a higher level of management than a naive implementation that agile gives. Agile-like processes can be integrated into CRISP-DM with usages of rapid prototyping and usual backlogging, testing, etc, but found the CRISP-DM "pipeline" is adaptable to the real world goal of developing data science projects.
+
+CRISP-DM is inherently iterative, it understands that whilst developing in say the evaluation phase, unexpected consequences allow us to move back to the data preparing or modelling phase to adjust. Furthermore, the feedback loops observed in \ref{fig:CRISP-DM Methdology} explicity accomadates returning to previous steps to refine insights. 
+
+The 6 phases include business understanding, data understanding, data preparation, modelling, evaluation, and deployment.
+
+\subsection{Business Understanding}
+The objective of the project is to increase accessibility for the Deaf and Hard of Hearing community, and by developing artificial intelligent models, this would be achieved. In order to tackle this, we must understand if we have the ability to;
+
+\subsection{Data Understanding}
+
+\section{Chapter 4: System Design and Architecture}
+
+\subsection{Business understanding}
+
+
+
+\section{Chapter 5: Implementation}
+
+\jupynotex{/home/jpinn/asl-fingerspelling-recognition/report/latex/jupynotex/example/cell_ranges.ipynb}
+
+
+\section{Chapter 6: Testing and Validation}
+
+\section{Ethical Considerations Chapter}
+
+\section{Legal Considerations Chapter}
+
+\section{Conclusion Chapter}
 
 \bibliographystyle{elsarticle-harv}
 \bibliography{library}
-
-% MAIN CHAPTERS
-\section{MAIN CHAPTERS:}
-\subsection{Chapter 1:}
 
 \section{DEVELOPMENT NOTES}
 
