@@ -121,6 +121,42 @@ The objective of the project is to increase accessibility for the Deaf and Hard 
 
 \subsection{Data Understanding}
 
+Given our chosen dataset, we must explore the data we are working with. This includes the complexity of the data, in terms of size, shape, format, distribution, and quality. We need to model the data so we can understand the relationships between fields. The data was created using MediaPipe ****CITE*****, an open-source framework for creating AI pipelines, it contains various pre-trained models such as the MediaPipe Holistic Model https://github.com/google/mediapipe/blob/master/docs/solutions/holistic.md that can label images and videos, for groups of the body such as hands, face, and pose.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=1\textwidth]{images/mediapipe.png}
+    \caption{MediaPipe Framework Hand Landmarks \cite{IMAGE}}
+    \label{fig:MediaPipe Framework}
+\end{figure}
+
+Figure \ref{fig:MediaPipe Framework} shows the mapping of landmarks for hands, which are points used to track the movemnt of the joints and important features, all groups have this structure.
+
+The dataset consists of 121 parquet files, columnar-storage structure for large datasets that work in a distributed environment such as Hadoop. 
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=1\textwidth]{images/parquet_structure_1.png}
+    \caption{Dataset Structure: train.csv}
+    \label{fig:Dataset Structure}
+\end{figure}
+
+Referring to Figure \ref{fig:Dataset Structure}, the components of the dataset is primarily of sequence_id, which correlate to a signed phrase which is denoted by a seperate train.csv document. Each sequence_id groups a number of sequences or rows of frames. This grouping extends again as all the following columns are landmarks split into their x, y, z axis.
+
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=1\textwidth]{images/parquet_structure_2.png}
+    \caption{Parquet File Structure}
+    \label{fig:Parquet File Structure}
+\end{figure}
+
+Figure \ref{fig:Parquet File Structure} shows us this is a sequential dataset. Exploring the dataset we see that the length of phrases are variable, as is the number of frames in each sequence. There are 1,629 spatial coordinates representing x, y, z for each of 543 landmarks represented by 'face', 'left_hand', 'pose', 'right_hand'. 
+
+Additionally, there are a number of landmarks where values are missing, and for some large stretches of frames all values are missing, which denotes a potential corruption of recording or missing data. These missing values will need to be handled carefully in the data preparation phase. The variability of the data is a challenge, certain models in seq2seq tasks require fixed lengths for inputs and outputs, and the large variability is a trouble so truncation or interpolation along the time axis may be necessary. The sequence length would allow a larger range of temporal features to be extracted but would require a complex model and larger memory requirements.  The landmarks are of type float32, which is a 32-bit floating point number, this is typically high precision and default in PyTorch and TensorFlow, we may not require this level of precision and could downcast to float16 or another type to save memory and speed up computation.
+
+\subsection{Data Preparation}
+
 \section{Chapter 4: System Design and Architecture}
 
 \subsection{Business understanding}
