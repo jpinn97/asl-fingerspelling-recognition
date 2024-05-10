@@ -1,4 +1,4 @@
-\documentclass[preprint,12pt,review,authoryear]{elsarticle}
+\documentclass[preprint,11pt,review,authoryear]{elsarticle}
 
 \usepackage{graphicx}
 \usepackage{titling}
@@ -18,8 +18,6 @@
 \usepackage{pdfpages}
 \usepackage{lettrine}
 \usepackage{tabularx, booktabs}
-\usepackage{jupynotex}
-\usepackage{minted}
 
 
 \usetikzlibrary{calc, arrows.meta,shapes.geometric,positioning,shadows.blur,trees}
@@ -106,18 +104,37 @@ Over the course of this document, we will document a literature review to discov
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.5\textwidth]{images/CRISP-DM-process-model_W640.jpg}
-    \caption{CRISP-DM Methdology\cite{lofstromUtilizingDiversityPerformance2009}}
+    \caption{CRISP-DM Methdology \cite{lofstromUtilizingDiversityPerformance2009}}
     \label{fig:CRISP-DM Methdology}
 \end{figure}
 
-The CRoss Industry Standard Process for Data Mining (CRISP-DM) is a widely used methodology that provides a structured approach to undertaking data science projects from a process perspective. In this task, we emphazise the usage of CRISP-DM methodology as a preferable process over a standalone software development methodology, this is because the project requires a higher level of management than a naive implementation that agile gives. Agile-like processes can be integrated into CRISP-DM with usages of rapid prototyping and usual backlogging, testing, etc, but found the CRISP-DM "pipeline" is adaptable to the real world goal of developing data science projects.
+The CRoss Industry Standard Process for Data Mining (CRISP-DM) is a widely used methodology that provides a structured approach to undertaking data science projects from a process perspective. In this task, we emphasise the usage of CRISP-DM methodology as a preferable process over a standalone software development methodology, this is because the project requires a higher level of management than a naive implementation that agile gives. Agile-like processes can be integrated into CRISP-DM with usages of rapid prototyping and usual backlogging, testing, etc, but found the CRISP-DM "pipeline" is adaptable to the real world goal of developing data science projects.
 
-CRISP-DM is inherently iterative, it understands that whilst developing in say the evaluation phase, unexpected consequences allow us to move back to the data preparing or modelling phase to adjust. Furthermore, the feedback loops observed in \ref{fig:CRISP-DM Methdology} explicity accomadates returning to previous steps to refine insights. 
+CRISP-DM is inherently iterative, it understands that whilst developing in say the evaluation phase, unexpected consequences allow us to move back to the data preparing or modelling phase to adjust. Furthermore, the feedback loops observed in \ref{fig:CRISP-DM Methdology} explicitly accommodates returning to previous steps to refine insights. 
 
 The 6 phases include business understanding, data understanding, data preparation, modelling, evaluation, and deployment.
 
 \subsection{Business Understanding}
-The objective of the project is to increase accessibility for the Deaf and Hard of Hearing community, and by developing artificial intelligent models, this would be achieved. In order to tackle this, we must understand if we have the ability to;
+
+The objective of the project is to increase accessibility for the Deaf and Hard of Hearing community, and by developing artificial intelligent models, this would be achieved. In order to tackle this, we must understand if we have the ability to; developing AI requires computing resources (hardware platforms), as well as software, furthermore we must understand if the datasets available exist in order to complete the objectives, and if there are any data security concerns and or legal issues.
+
+The computer resource available to us are NVIDIA RTX 3090 GPU with 24GB of GDDR6X memory, an AMD Ryzen 9 7950X 16-Core Processor and 64GB of DDR5 memory. This is critical because one, seq2seq tasks can require a lot of memory and processing power from graphics cards / accelerators due to the amount of parameters and input sizes, and an NVIDIA monopoly due to the CUDA framework \cite{CUDAToolkitFree}.
+
+At this early stage, we must decide upon the major tools. Artificial intelligence splits into two major deep learning frameworks, and are TensorFlow \cite{abadiTensorFlowSystemLargescale2016} and PyTorch \cite{paszkePyTorchImperativeStyle2019}. PyTorch has a tremendous amount of modularity, and out of the box support for major models, it also is very fast, and uses a lot less memory than TensorFlow.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=1\textwidth]{images/pytorch-vs-tensorflow-popularity-comparison.png}
+    \caption{TensorFlow vs PyTorch \cite{boeschPytorchVsTensorflow2023}}
+    \label{fig: TensorFlow vs PyTorch}
+\end{figure}
+
+See Figure \ref{fig: TensorFlow vs PyTorch}, that shows the number of created repositories, i.e new projects with certain frameworks. For a comparison on these frameworks from Gardenz Boesch \cite{boeschPytorchVsTensorflow2023} and anecdotal evidence from increasing usage from popular data science website Kaggle \citep{anthonygoldbloomKaggleYourHome}, we conclude on PyTorch due to its ease of use modular system, out-of-box features, and increasing popularity shift compared to TensorFlow.
+
+The "ASL Fingerspelling Recognition Corpus (version 1.0) is a collection of hand and facial landmarks generated by MediaPipe version 0.9.0.1 on videos of phrases, addresses, phone numbers, and urls fingerspelling by over 100 Deaf signers" \cite{asl-fingerspelling} released by Google with a licence to adapt and use freely, even commercially \cite{CCDeedAttribution}. This dataset presents an opportunity, released shortly before this projects conception in early 2023. It is a large dataset in size (180GB) consisting of diverse conditions, number of signers, representation of signing fluency and cultures, essentially the complexity of the dataset allows a larger and more complicated model as the amount of features that can be extracted is high. This dataset can change the playing field, as previous research for ASL fingerspelling came from the ChicagoWild \cite{fs18slt} and ChicagoWild+ \cite{fs18iccv} datasets, which were the largest ASL fingerspelling collections "in the wild" conditions, essentially videos available online, predominately used by Bowen Shi \citep{shiAmericanSignLanguage2018}. 
+
+Academic research, as well as applied research has been moving away from these datasets due to legal issues regarding the source of the datasets, videos from the public realm such as YouTube were being downloaded and used without permission, this presented legal issues, and thus commerciality of models developed with it impossible would be of heightened concern.
+
 
 \subsection{Data Understanding}
 
@@ -157,17 +174,17 @@ Additionally, there are a number of landmarks where values are missing, and for 
 
 \subsection{Data Preparation}
 
-\section{Chapter 4: System Design and Architecture}
 
-\subsection{Business understanding}
+
+\section{Chapter 4: System Design and Architecture}
 
 
 
 \section{Chapter 5: Implementation}
 
-\jupynotex{/home/jpinn/asl-fingerspelling-recognition/report/latex/jupynotex/example/cell_ranges.ipynb}
 
-
+\newpage % INCLUDE CODE
+%\includepdf[pages=1-16]{/home/jpinn/asl-fingerspelling-recognition/report/latex/fingerspellingIPYNB.pdf}
 \section{Chapter 6: Testing and Validation}
 
 \section{Ethical Considerations Chapter}
