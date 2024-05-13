@@ -7,12 +7,12 @@
   number = {arXiv:1605.08695},
   eprint = {1605.08695},
   primaryclass = {cs},
-  publisher = {{arXiv}},
+  publisher = {arXiv},
   doi = {10.48550/arXiv.1605.08695},
   urldate = {2023-12-18},
   abstract = {TensorFlow is a machine learning system that operates at large scale and in heterogeneous environments. TensorFlow uses dataflow graphs to represent computation, shared state, and the operations that mutate that state. It maps the nodes of a dataflow graph across many machines in a cluster, and within a machine across multiple computational devices, including multicore CPUs, general-purpose GPUs, and custom designed ASICs known as Tensor Processing Units (TPUs). This architecture gives flexibility to the application developer: whereas in previous "parameter server" designs the management of shared state is built into the system, TensorFlow enables developers to experiment with novel optimizations and training algorithms. TensorFlow supports a variety of applications, with particularly strong support for training and inference on deep neural networks. Several Google services use TensorFlow in production, we have released it as an open-source project, and it has become widely used for machine learning research. In this paper, we describe the TensorFlow dataflow model in contrast to existing systems, and demonstrate the compelling performance that TensorFlow achieves for several real-world applications.},
   archiveprefix = {arxiv},
-  keywords = {Computer Science - Artificial Intelligence,{Computer Science - Distributed, Parallel, and Cluster Computing}},
+  keywords = {Computer Science - Artificial Intelligence,Computer Science - Distributed Parallel and Cluster Computing},
   file = {C\:\\Users\\test\\Zotero\\storage\\3ZQEDSI8\\Abadi et al. - 2016 - TensorFlow A system for large-scale machine learn.pdf;C\:\\Users\\test\\Zotero\\storage\\CVZGU8KX\\1605.html}
 }
 
@@ -23,8 +23,8 @@
   year = {2020},
   month = jun,
   pages = {1--5},
-  publisher = {{IEEE}},
-  address = {{Istanbul, Turkey}},
+  publisher = {IEEE},
+  address = {Istanbul, Turkey},
   doi = {10.1109/ICECCE49384.2020.9179356},
   urldate = {2023-11-29},
   abstract = {This paper presents a Sign Language translation model using Convolutional Neural Networks (CNN). A sign language is a language which allows mute and hearingimpaired people to communicate. It is a visually oriented, nonverbal communication which facilitates communication through body/facial postures, expressions and a collection of gestures. To contribute to the wellbeing of the affected population, we are motivated to implement a vision-based system to avert their day to day challenges. Our propose model constitutes object detection and classification phases. The first module is made up of single shot multi-box detector (SSD) used for hand detection. The second module constitutes convolutional neural network plus a fully connected network utilized to constructively translate the detected signs into text. The propose model is implemented using American sign language fingerspelling dataset. The propose system outperformed other published results in the comparative analysis, hence recommended for further exploitation in sign language recognition problems.},
@@ -61,8 +61,17 @@
   title = {Google - American Sign Language Fingerspelling Recognition},
   author = {{Manfred Georg} and {Phil Culliton} and {Sam Sepah} and {Sohier Dane} and {Thad Starner} and {Ashley Chow} and {Glenn Cameron}},
   year = {2023},
-  publisher = {{Kaggle}},
+  publisher = {Kaggle},
   url = {https://kaggle.com/competitions/asl-fingerspelling}
+}
+
+@misc{ASLFingerspellingRecognition,
+  title = {{{ASL Fingerspelling Recognition}} w/ {{TensorFlow}}},
+  url = {https://kaggle.com/code/gusthema/asl-fingerspelling-recognition-w-tensorflow},
+  urldate = {2024-05-13},
+  abstract = {Explore and run machine learning code with Kaggle Notebooks {\textbar} Using data from Google - American Sign Language Fingerspelling Recognition},
+  langid = {english},
+  file = {C:\Users\test\Zotero\storage\IMGHR2Z5\asl-fingerspelling-recognition-w-tensorflow.html}
 }
 
 @misc{bahdanauNeuralMachineTranslation2016,
@@ -73,7 +82,7 @@
   number = {arXiv:1409.0473},
   eprint = {1409.0473},
   primaryclass = {cs, stat},
-  publisher = {{arXiv}},
+  publisher = {arXiv},
   doi = {10.48550/arXiv.1409.0473},
   urldate = {2023-12-15},
   abstract = {Neural machine translation is a recently proposed approach to machine translation. Unlike the traditional statistical machine translation, the neural machine translation aims at building a single neural network that can be jointly tuned to maximize the translation performance. The models proposed recently for neural machine translation often belong to a family of encoder-decoders and consists of an encoder that encodes a source sentence into a fixed-length vector from which a decoder generates a translation. In this paper, we conjecture that the use of a fixed-length vector is a bottleneck in improving the performance of this basic encoder-decoder architecture, and propose to extend this by allowing a model to automatically (soft-)search for parts of a source sentence that are relevant to predicting a target word, without having to form these parts as a hard segment explicitly. With this new approach, we achieve a translation performance comparable to the existing state-of-the-art phrase-based system on the task of English-to-French translation. Furthermore, qualitative analysis reveals that the (soft-)alignments found by the model agree well with our intuition.},
@@ -110,7 +119,7 @@
 }
 
 @misc{CCDeedAttribution,
-  title = {{{CC BY}} 4.0 {{Deed}} | {{Attribution}} 4.0 {{International}} | {{Creative Commons}}},
+  title = {{{CC BY}} 4.0 {{Deed}} {\textbar} {{Attribution}} 4.0 {{International}} {\textbar} {{Creative Commons}}},
   url = {https://creativecommons.org/licenses/by/4.0/},
   urldate = {2024-05-09},
   file = {C:\Users\test\Zotero\storage\5I5KE3W3\4.0.html}
@@ -125,7 +134,7 @@
   volume = {18},
   number = {10},
   pages = {3554},
-  publisher = {{Multidisciplinary Digital Publishing Institute}},
+  publisher = {Multidisciplinary Digital Publishing Institute},
   issn = {1424-8220},
   doi = {10.3390/s18103554},
   urldate = {2023-11-29},
@@ -144,8 +153,8 @@
   year = {2020},
   month = jun,
   pages = {10020--10030},
-  publisher = {{IEEE}},
-  address = {{Seattle, WA, USA}},
+  publisher = {IEEE},
+  address = {Seattle, WA, USA},
   doi = {10.1109/CVPR42600.2020.01004},
   urldate = {2023-11-29},
   abstract = {Prior work on Sign Language Translation has shown that having a mid-level sign gloss representation (effectively recognizing the individual signs) improves the translation performance drastically. In fact, the current state-of-theart in translation requires gloss level tokenization in order to work. We introduce a novel transformer based architecture that jointly learns Continuous Sign Language Recognition and Translation while being trainable in an end-to-end manner. This is achieved by using a Connectionist Temporal Classification (CTC) loss to bind the recognition and translation problems into a single unified architecture. This joint approach does not require any ground-truth timing information, simultaneously solving two co-dependant sequence-tosequence learning problems and leads to significant performance gains.},
@@ -183,7 +192,7 @@
 }
 
 @misc{ethnologueAmericanSignLanguage2023,
-  title = {American {{Sign Language}} | {{Ethnologue Free}}},
+  title = {American {{Sign Language}} {\textbar} {{Ethnologue Free}}},
   author = {{Ethnologue}},
   year = {2023},
   month = feb,
@@ -204,7 +213,7 @@
   number = {arXiv:2311.12128},
   eprint = {2311.12128},
   primaryclass = {cs},
-  publisher = {{arXiv}},
+  publisher = {arXiv},
   doi = {10.48550/arXiv.2311.12128},
   urldate = {2024-01-12},
   abstract = {We address the task of American Sign Language fingerspelling translation using videos in the wild. We exploit advances in more accurate hand pose estimation and propose a novel architecture that leverages the transformer based encoder-decoder model enabling seamless contextual word translation. The translation model is augmented by a novel loss term that accurately predicts the length of the finger-spelled word, benefiting both training and inference. We also propose a novel two-stage inference approach that re-ranks the hypotheses using the language model capabilities of the decoder. Through extensive experiments, we demonstrate that our proposed method outperforms the state-of-the-art models on ChicagoFSWild and ChicagoFSWild+ achieving more than 10\% relative improvement in performance. Our findings highlight the effectiveness of our approach and its potential to advance fingerspelling recognition in sign language translation. Code is also available at https://github.com/pooyafayyaz/Fingerspelling-PoseNet.},
@@ -236,14 +245,32 @@
   year = {2021},
   month = oct,
   pages = {3266--3271},
-  publisher = {{IEEE}},
-  address = {{Melbourne, Australia}},
+  publisher = {IEEE},
+  address = {Melbourne, Australia},
   doi = {10.1109/SMC52423.2021.9658982},
   urldate = {2023-12-13},
   abstract = {Fingerspelling in sign language has been the means of communicating technical terms and proper nouns when they do not have dedicated sign language gestures. Automatic recognition of fingerspelling can help resolve communication barriers when interacting with deaf people. The main challenges prevalent in fingerspelling recognition are the ambiguity in the gestures and strong articulation of the hands. The automatic recognition model should address high inter-class visual similarity and high intra-class variation in the gestures. Most of the existing research in fingerspelling recognition has focused on the dataset collected in a controlled environment. The recent collection of a large-scale annotated fingerspelling dataset in the wild, from social media and online platforms, captures the challenges in a real-world scenario. In this work, we propose a fine-grained visual attention mechanism using the Transformer model for the sequence-to-sequence prediction task in the wild dataset. The fine-grained attention is achieved by utilizing the change in motion of the video frames (optical flow) in sequential context-based attention along with a Transformer encoder model. The unsegmented continuous video dataset is jointly trained by balancing the Connectionist Temporal Classification (CTC) loss and the maximum-entropy loss. The proposed approach can capture better fine-grained attention in a single iteration. Experiment evaluations show that it outperforms the state-of-the-art approaches.},
   isbn = {978-1-66544-207-7},
   langid = {english},
   file = {C:\Users\test\Zotero\storage\TSAAPSAB\Gajurel et al. - 2021 - A Fine-Grained Visual Attention Approach for Finge.pdf}
+}
+
+@misc{GoogleAmericanSigna,
+  title = {Google - {{American Sign Language Fingerspelling Recognition}}},
+  url = {https://kaggle.com/competitions/asl-fingerspelling},
+  urldate = {2024-05-13},
+  abstract = {Train fast and accurate American Sign Language fingerspelling recognition models},
+  langid = {english},
+  file = {C:\Users\test\Zotero\storage\A2D7FTAW\434485.html}
+}
+
+@misc{GoogleAmericanSignb,
+  title = {Google - {{American Sign Language Fingerspelling Recognition}}},
+  url = {https://kaggle.com/competitions/asl-fingerspelling},
+  urldate = {2024-05-13},
+  abstract = {Train fast and accurate American Sign Language fingerspelling recognition models},
+  langid = {english},
+  file = {C:\Users\test\Zotero\storage\8F9QCHZN\434588.html}
 }
 
 @inproceedings{gravesConnectionistTemporalClassification2006a,
@@ -255,8 +282,8 @@
   month = jun,
   series = {{{ICML}} '06},
   pages = {369--376},
-  publisher = {{Association for Computing Machinery}},
-  address = {{New York, NY, USA}},
+  publisher = {Association for Computing Machinery},
+  address = {New York, NY, USA},
   doi = {10.1145/1143844.1143891},
   urldate = {2023-12-16},
   abstract = {Many real-world sequence learning tasks require the prediction of sequences of labels from noisy, unsegmented input data. In speech recognition, for example, an acoustic signal is transcribed into words or sub-word units. Recurrent neural networks (RNNs) are powerful sequence learners that would seem well suited to such tasks. However, because they require pre-segmented training data, and post-processing to transform their outputs into label sequences, their applicability has so far been limited. This paper presents a novel method for training RNNs to label unsegmented sequences directly, thereby solving both problems. An experiment on the TIMIT speech corpus demonstrates its advantages over both a baseline HMM and a hybrid HMM-RNN.},
@@ -290,7 +317,7 @@
   number = {arXiv:2005.08100},
   eprint = {2005.08100},
   primaryclass = {cs, eess},
-  publisher = {{arXiv}},
+  publisher = {arXiv},
   doi = {10.48550/arXiv.2005.08100},
   urldate = {2023-12-18},
   abstract = {Recently Transformer and Convolution neural network (CNN) based models have shown promising results in Automatic Speech Recognition (ASR), outperforming Recurrent neural networks (RNNs). Transformer models are good at capturing content-based global interactions, while CNNs exploit local features effectively. In this work, we achieve the best of both worlds by studying how to combine convolution neural networks and transformers to model both local and global dependencies of an audio sequence in a parameter-efficient way. To this regard, we propose the convolution-augmented transformer for speech recognition, named Conformer. Conformer significantly outperforms the previous Transformer and CNN based models achieving state-of-the-art accuracies. On the widely used LibriSpeech benchmark, our model achieves WER of 2.1\%/4.3\% without using a language model and 1.9\%/3.9\% with an external language model on test/testother. We also observe competitive performance of 2.7\%/6.3\% with a small model of only 10M parameters.},
@@ -334,7 +361,7 @@
   number = {arXiv:2206.00888},
   eprint = {2206.00888},
   primaryclass = {cs, eess},
-  publisher = {{arXiv}},
+  publisher = {arXiv},
   doi = {10.48550/arXiv.2206.00888},
   urldate = {2023-12-18},
   abstract = {The recently proposed Conformer model has become the de facto backbone model for various downstream speech tasks based on its hybrid attention-convolution architecture that captures both local and global features. However, through a series of systematic studies, we find that the Conformer architecture's design choices are not optimal. After re-examining the design choices for both the macro and micro-architecture of Conformer, we propose Squeezeformer which consistently outperforms the state-of-the-art ASR models under the same training schemes. In particular, for the macro-architecture, Squeezeformer incorporates (i) the Temporal U-Net structure which reduces the cost of the multi-head attention modules on long sequences, and (ii) a simpler block structure of multi-head attention or convolution modules followed up by feed-forward module instead of the Macaron structure proposed in Conformer. Furthermore, for the micro-architecture, Squeezeformer (i) simplifies the activations in the convolutional block, (ii) removes redundant Layer Normalization operations, and (iii) incorporates an efficient depthwise down-sampling layer to efficiently sub-sample the input signal. Squeezeformer achieves state-of-the-art results of 7.5\%, 6.5\%, and 6.0\% word-error-rate (WER) on LibriSpeech test-other without external language models, which are 3.1\%, 1.4\%, and 0.6\% better than Conformer-CTC with the same number of FLOPs. Our code is open-sourced and available online.},
@@ -350,7 +377,7 @@
   year = {2012},
   volume = {25},
   pages = {1097--1105},
-  publisher = {{Curran Associates, Inc.}},
+  publisher = {Curran Associates, Inc.},
   url = {https://proceedings.neurips.cc/paper\_files/paper/2012/hash/c399862d3b9d6b76c8436e924a68c45b-Abstract.html},
   urldate = {2023-12-15},
   abstract = {We trained a large, deep convolutional neural network to classify the 1.3 million high-resolution images in the LSVRC-2010 ImageNet training set into the 1000 different classes. On the test data, we achieved top-1 and top-5 error rates of 39.7{\textbackslash}\% and 18.9{\textbackslash}\% which is considerably better than the previous state-of-the-art results. The neural network, which has 60 million parameters and 500,000 neurons, consists of five convolutional layers, some of which are followed by max-pooling layers, and two globally connected layers with a final 1000-way softmax. To make training faster, we used non-saturating neurons and a very efficient GPU implementation of convolutional nets. To reduce overfitting in the globally connected layers we employed a new regularization method that proved to be very effective.},
@@ -403,13 +430,23 @@
   number = {arXiv:1906.08172},
   eprint = {1906.08172},
   primaryclass = {cs},
-  publisher = {{arXiv}},
+  publisher = {arXiv},
   doi = {10.48550/arXiv.1906.08172},
   urldate = {2023-12-18},
   abstract = {Building applications that perceive the world around them is challenging. A developer needs to (a) select and develop corresponding machine learning algorithms and models, (b) build a series of prototypes and demos, (c) balance resource consumption against the quality of the solutions, and finally (d) identify and mitigate problematic cases. The MediaPipe framework addresses all of these challenges. A developer can use MediaPipe to build prototypes by combining existing perception components, to advance them to polished cross-platform applications and measure system performance and resource consumption on target platforms. We show that these features enable a developer to focus on the algorithm or model development and use MediaPipe as an environment for iteratively improving their application with results reproducible across different devices and platforms. MediaPipe will be open-sourced at https://github.com/google/mediapipe.},
   archiveprefix = {arxiv},
-  keywords = {{Computer Science - Distributed, Parallel, and Cluster Computing}},
+  keywords = {Computer Science - Distributed Parallel and Cluster Computing},
   file = {C\:\\Users\\test\\Zotero\\storage\\TL3SCWJQ\\Lugaresi et al. - 2019 - MediaPipe A Framework for Building Perception Pip.pdf;C\:\\Users\\test\\Zotero\\storage\\PKF8C8CU\\1906.html}
+}
+
+@misc{mikelbober-irizarStaticGreedyBaseline,
+  title = {Static {{Greedy Baseline}} [0.157 {{LB}}]},
+  author = {{Mikel Bober-Irizar}},
+  url = {https://kaggle.com/code/anokas/static-greedy-baseline-0-157-lb},
+  urldate = {2024-05-12},
+  abstract = {Explore and run machine learning code with Kaggle Notebooks {\textbar} Using data from Google - American Sign Language Fingerspelling Recognition},
+  langid = {english},
+  file = {C:\Users\test\Zotero\storage\8WCM2LKV\static-greedy-baseline-0-157-lb.html}
 }
 
 @article{mitchellHowManyPeople2006,
@@ -423,7 +460,7 @@
   eprint = {26190621},
   eprinttype = {jstor},
   pages = {306--335},
-  publisher = {{Gallaudet University Press}},
+  publisher = {Gallaudet University Press},
   issn = {0302-1475},
   url = {https://www.jstor.org/stable/26190621},
   urldate = {2023-11-05},
@@ -455,8 +492,8 @@
   year = {2019},
   month = apr,
   pages = {314--318},
-  publisher = {{IEEE}},
-  address = {{Hanoi, Vietnam}},
+  publisher = {IEEE},
+  address = {Hanoi, Vietnam},
   doi = {10.1109/ICT.2019.8798856},
   urldate = {2023-11-29},
   abstract = {Sign language has always been a major tool for communication among people with disabilities. In this paper, a sign language fingerspelling alphabet identification system would be developed by using image processing technique, supervised machine learning and deep learning. In particular, 24 alphabetical symbols are presented by several combinations of static gestures (excluding 2 motion gestures J and Z). Histogram of Oriented Gradients (HOG) and Local Binary Pattern (LBP) features of each gesture will be extracted from training images. Then Multiclass Support Vector Machines (SVMs) will be applied to train these extracted data. Also, an end-to-end Convolutional Neural Network (CNN) architecture will be applied to the training dataset for comparison. After that, a further combination of CNN as feature descriptor and SVM produces an acceptable result. The Massey Dataset is implemented in the training and testing phases of the whole system.},
@@ -474,7 +511,7 @@
   volume = {41},
   number = {1},
   pages = {135--161},
-  publisher = {{SAGE Publications Ltd}},
+  publisher = {SAGE Publications Ltd},
   issn = {0265-5322},
   doi = {10.1177/02655322231179494},
   urldate = {2024-01-12},
@@ -491,7 +528,7 @@
   volume = {41},
   number = {1},
   pages = {135--161},
-  publisher = {{SAGE Publications Ltd}},
+  publisher = {SAGE Publications Ltd},
   issn = {0265-5322},
   doi = {10.1177/02655322231179494},
   urldate = {2024-01-12},
@@ -513,7 +550,7 @@
   issn = {0952-1976},
   doi = {10.1016/j.engappai.2011.06.015},
   urldate = {2023-12-15},
-  abstract = {An American Sign Language (ASL) recognition system is being developed using artificial neural networks (ANNs) to translate ASL words into English. The system uses a sensory glove called the Cyberglove{\texttrademark} and a Flock of Birds{\textregistered} 3-D motion tracker to extract the gesture features. The data regarding finger joint angles obtained from strain gauges in the sensory glove define the hand shape, while the data from the tracker describe the trajectory of hand movements. The data from these devices are processed by a velocity network with noise reduction and feature extraction and by a word recognition network. Some global and local features are extracted for each ASL word. A neural network is used as a classifier of this feature vector. Our goal is to continuously recognize ASL signs using these devices in real time. We trained and tested the ANN model for 50 ASL words with a different number of samples for every word. The test results show that our feature vector extraction method and neural networks can be used successfully for isolated word recognition. This system is flexible and open for future extension.},
+  abstract = {An American Sign Language (ASL) recognition system is being developed using artificial neural networks (ANNs) to translate ASL words into English. The system uses a sensory glove called the Cyberglove™ and a Flock of Birds{\textregistered} 3-D motion tracker to extract the gesture features. The data regarding finger joint angles obtained from strain gauges in the sensory glove define the hand shape, while the data from the tracker describe the trajectory of hand movements. The data from these devices are processed by a velocity network with noise reduction and feature extraction and by a word recognition network. Some global and local features are extracted for each ASL word. A neural network is used as a classifier of this feature vector. Our goal is to continuously recognize ASL signs using these devices in real time. We trained and tested the ANN model for 50 ASL words with a different number of samples for every word. The test results show that our feature vector extraction method and neural networks can be used successfully for isolated word recognition. This system is flexible and open for future extension.},
   keywords = {American Sign Language (ASL),Artificial Neural Networks (ANNs),ASL recognition,Finger spelling recognition,Hand-shape recognition},
   file = {C:\Users\test\Zotero\storage\35EI6IGW\S0952197611001230.html}
 }
@@ -525,12 +562,19 @@
   year = {2019},
   month = sep,
   pages = {2315--2319},
-  publisher = {{ISCA}},
+  publisher = {ISCA},
   doi = {10.21437/Interspeech.2019-2422},
   urldate = {2024-01-12},
   abstract = {Although fingerspelling is an often overlooked component of sign languages, it has great practical value in the communication of important context words that lack dedicated signs. In this paper we consider the problem of fingerspelling recognition in videos, introducing an end-to-end lexicon-free model that consists of a deep auto-encoder image feature learner followed by an attention-based encoder-decoder for prediction. The feature extractor is a vanilla auto-encoder variant, employing a quadratic activation function. The learned features are subsequently fed into the attention-based encoder-decoder. The latter deviates from traditional recurrent neural network architectures, being a fully convolutional attention-based encoder-decoder that is equipped with a multi-step attention mechanism relying on a quadratic alignment function and gated linear units over the convolution output. The introduced model is evaluated on the TTIC/UChicago fingerspelling video dataset, where it outperforms previous approaches in letter accuracy under all three, signer-dependent, -adapted, and -independent, experimental paradigms.},
   langid = {english},
   file = {C:\Users\test\Zotero\storage\TVSDWUQD\Papadimitriou and Potamianos - 2019 - End-to-End Convolutional Sequence Learning for ASL.pdf}
+}
+
+@misc{Parquet,
+  title = {Parquet},
+  url = {https://parquet.apache.org/},
+  urldate = {2024-05-11},
+  abstract = {The Apache Parquet Website}
 }
 
 @misc{paszkePyTorchImperativeStyle2019,
@@ -542,7 +586,7 @@
   number = {arXiv:1912.01703},
   eprint = {1912.01703},
   primaryclass = {cs, stat},
-  publisher = {{arXiv}},
+  publisher = {arXiv},
   doi = {10.48550/arXiv.1912.01703},
   urldate = {2023-12-18},
   abstract = {Deep learning frameworks have often focused on either usability or speed, but not both. PyTorch is a machine learning library that shows that these two goals are in fact compatible: it provides an imperative and Pythonic programming style that supports code as a model, makes debugging easy and is consistent with other popular scientific computing libraries, while remaining efficient and supporting hardware accelerators such as GPUs. In this paper, we detail the principles that drove the implementation of PyTorch and how they are reflected in its architecture. We emphasize that every aspect of PyTorch is a regular Python program under the full control of its user. We also explain how the careful and pragmatic implementation of the key components of its runtime enables them to work together to achieve compelling performance. We demonstrate the efficiency of individual subsystems, as well as the overall speed of PyTorch on several common benchmarks.},
@@ -566,6 +610,13 @@
   abstract = {Sign language, as a different form of the communication language, is important to large groups of people in society. There are different signs in each sign language with variability in hand shape, motion profile, and position of the hand, face, and body parts contributing to each sign. So, visual sign language recognition is a complex research area in computer vision. Many models have been proposed by different researchers with significant improvement by deep learning approaches in recent years. In this survey, we review the visionbased proposed models of sign language recognition using deep learning approaches from the last five years. While the overall trend of the proposed models indicates a significant improvement in recognition accuracy in sign language recognition, there are some challenges yet that need to be solved. We present a taxonomy to categorize the proposed models for isolated and continuous sign language recognition, discussing applications, datasets, hybrid models, complexity, and future lines of research in the field.},
   langid = {english},
   file = {C:\Users\test\Zotero\storage\NXZMWM3W\Rastgoo et al. - 2021 - Sign Language Recognition A Deep Survey.pdf}
+}
+
+@misc{RayTrainScalable,
+  title = {Ray {{Train}}: {{Scalable Model Training}} --- {{Ray}} 2.21.0},
+  url = {https://docs.ray.io/en/latest/train/train.html},
+  urldate = {2024-05-13},
+  file = {C:\Users\test\Zotero\storage\9HDFGJH5\train.html}
 }
 
 @article{saeedSystematicReviewSystemsBased2022,
@@ -623,8 +674,8 @@
   year = {2021},
   month = jun,
   pages = {4164--4173},
-  publisher = {{IEEE}},
-  address = {{Nashville, TN, USA}},
+  publisher = {IEEE},
+  address = {Nashville, TN, USA},
   doi = {10.1109/CVPR46437.2021.00415},
   urldate = {2023-11-29},
   abstract = {Fingerspelling, in which words are signed letter by letter, is an important component of American Sign Language. Most previous work on automatic fingerspelling recognition has assumed that the boundaries of fingerspelling regions in signing videos are known beforehand. In this paper, we consider the task of fingerspelling detection in raw, untrimmed sign language videos. This is an important step towards building real-world fingerspelling recognition systems. We propose a benchmark and a suite of evaluation metrics, some of which reflect the effect of detection on the downstream fingerspelling recognition task. In addition, we propose a new model that learns to detect fingerspelling via multi-task training, incorporating pose estimation and fingerspelling recognition (transcription) along with detection, and compare this model to several alternatives. The model outperforms all alternative approaches across all metrics, establishing a state of the art on the benchmark.},
@@ -640,8 +691,8 @@
   year = {2019},
   month = oct,
   pages = {5399--5408},
-  publisher = {{IEEE}},
-  address = {{Seoul, Korea (South)}},
+  publisher = {IEEE},
+  address = {Seoul, Korea (South)},
   doi = {10.1109/ICCV.2019.00550},
   urldate = {2023-11-29},
   abstract = {Sign language recognition is a challenging gesture sequence recognition problem, characterized by quick and highly coarticulated motion. In this paper we focus on recognition of fingerspelling sequences in American Sign Language (ASL) videos collected in the wild, mainly from YouTube and Deaf social media. Most previous work on sign language recognition has focused on controlled settings where the data is recorded in a studio environment and the number of signers is limited. Our work aims to address the challenges of real-life data, reducing the need for detection or segmentation modules commonly used in this domain. We propose an end-to-end model based on an iterative attention mechanism, without explicit hand detection or segmentation. Our approach dynamically focuses on increasingly high-resolution regions of interest. It outperforms prior work by a large margin. We also introduce a newly collected data set of crowdsourced annotations of fingerspelling in the wild, and show that performance can be further improved with this additional data set.},
@@ -658,7 +709,7 @@
   number = {arXiv:2203.13291},
   eprint = {2203.13291},
   primaryclass = {cs},
-  publisher = {{arXiv}},
+  publisher = {arXiv},
   url = {http://arxiv.org/abs/2203.13291},
   urldate = {2023-12-13},
   abstract = {Natural language processing for sign language video - including tasks like recognition, translation, and search - is crucial for making artificial intelligence technologies accessible to deaf individuals, and is gaining research interest in recent years. In this paper, we address the problem of searching for fingerspelled key-words or key phrases in raw sign language videos. This is an important task since significant content in sign language is often conveyed via fingerspelling, and to our knowledge the task has not been studied before. We propose an end-to-end model for this task, FSS-Net, that jointly detects fingerspelling and matches it to a text sequence. Our experiments, done on a large public dataset of ASL fingerspelling in the wild, show the importance of fingerspelling detection as a component of a search and retrieval model. Our model significantly outperforms baseline methods adapted from prior work on related tasks},
@@ -674,8 +725,8 @@
   year = {2018},
   month = dec,
   pages = {243--248},
-  publisher = {{IEEE}},
-  address = {{Orlando, FL}},
+  publisher = {IEEE},
+  address = {Orlando, FL},
   doi = {10.1109/ICMLA.2018.00043},
   urldate = {2023-11-29},
   abstract = {Sign language is the primary mode of communication for the hearing and speech impaired and there is a need for systems to translate sign languages to spoken languages. Prior research has been focused on providing glove based solutions which are intrusive and expensive. We propose a sign language translation system based solely on visual cues and deep learning for accurate translation. Our system applies Computer Vision and Neural Machine Translation for American Sign Language (ASL) gloss recognition and translation respectively. In this paper, we show that an end to end neural network system is not only capable of recognition of individual ASL glosses but also translation of continuous sign language videos into complete English sentences, making it an effective and practical tool for sign language communication.},
@@ -713,6 +764,13 @@
   file = {C\:\\Users\\test\\Zotero\\storage\\9ITYQU23\\Starner et al. - 1998 - Real-time American sign language recognition using.pdf;C\:\\Users\\test\\Zotero\\storage\\W6XC44TD\\735811.html}
 }
 
+@misc{TorchaudioFunctionalEdit_distance,
+  title = {Torchaudio.Functional.Edit\_distance --- {{Torchaudio}} 2.2.0.Dev20240513 Documentation},
+  url = {https://pytorch.org/audio/main/generated/torchaudio.functional.edit\_distance.html},
+  urldate = {2024-05-13},
+  file = {C:\Users\test\Zotero\storage\ZJ25IWLU\torchaudio.functional.edit_distance.html}
+}
+
 @misc{vaswaniAttentionAllYou2023,
   title = {Attention {{Is All You Need}}},
   author = {Vaswani, Ashish and Shazeer, Noam and Parmar, Niki and Uszkoreit, Jakob and Jones, Llion and Gomez, Aidan N. and Kaiser, Lukasz and Polosukhin, Illia},
@@ -721,7 +779,7 @@
   number = {arXiv:1706.03762},
   eprint = {1706.03762},
   primaryclass = {cs},
-  publisher = {{arXiv}},
+  publisher = {arXiv},
   doi = {10.48550/arXiv.1706.03762},
   urldate = {2023-12-15},
   abstract = {The dominant sequence transduction models are based on complex recurrent or convolutional neural networks in an encoder-decoder configuration. The best performing models also connect the encoder and decoder through an attention mechanism. We propose a new simple network architecture, the Transformer, based solely on attention mechanisms, dispensing with recurrence and convolutions entirely. Experiments on two machine translation tasks show these models to be superior in quality while being more parallelizable and requiring significantly less time to train. Our model achieves 28.4 BLEU on the WMT 2014 English-to-German translation task, improving over the existing best results, including ensembles by over 2 BLEU. On the WMT 2014 English-to-French translation task, our model establishes a new single-model state-of-the-art BLEU score of 41.8 after training for 3.5 days on eight GPUs, a small fraction of the training costs of the best models from the literature. We show that the Transformer generalizes well to other tasks by applying it successfully to English constituency parsing both with large and limited training data.},
@@ -756,9 +814,9 @@
   issn = {1615-5297},
   doi = {10.1007/s10209-007-0104-x},
   urldate = {2023-12-15},
-  abstract = {Research in the field of sign language recognition has made significant advances in recent years. The present achievements provide the basis for future applications with the objective of supporting the integration of deaf people into the hearing society. Translation systems, for example, could facilitate communication between deaf and hearing people in public situations. Further applications, such as user interfaces and automatic indexing of signed videos, become feasible. The current state in sign language recognition is roughly 30~years behind speech recognition, which corresponds to the gradual transition from isolated to continuous recognition for small vocabulary tasks. Research efforts were mainly focused on robust feature extraction or statistical modeling of signs. However, current recognition systems are still designed for signer-dependent operation under laboratory conditions. This paper describes a comprehensive concept for robust visual sign language recognition, which represents the recent developments in this field. The proposed recognition system aims for signer-independent operation and utilizes a single video camera for data acquisition to ensure user-friendliness. Since sign languages make use of manual and facial means of expression, both channels are employed for recognition. For mobile operation in uncontrolled environments, sophisticated algorithms were developed that robustly extract manual and facial features. The extraction of manual features relies on a multiple hypotheses tracking approach to resolve ambiguities of hand positions. For facial feature extraction, an active appearance model is applied which allows identification of areas of interest such as the eyes and mouth region. In the next processing step, a numerical description of the facial expression, head pose, line of sight, and lip outline is computed. The system employs a resolution strategy for dealing with mutual overlapping of the signer's hands and face. Classification is based on hidden Markov models which are able to compensate time and amplitude variances in the articulation of a sign. The classification stage is designed for recognition of isolated signs, as well as of continuous sign language. In the latter case, a stochastic language model can be utilized, which considers uni- and bigram probabilities of single and successive signs. For statistical modeling of reference models each sign is represented either as a whole or as a composition of smaller subunits{\textemdash}similar to phonemes in spoken languages. While recognition based on word models is limited to rather small vocabularies, subunit models open the door to large vocabularies. Achieving signer-independence constitutes a challenging problem, as the articulation of a sign is subject to high interpersonal variance. This problem cannot be solved by simple feature normalization and must be addressed at the classification level. Therefore, dedicated adaptation methods known from speech recognition were implemented and modified to consider the specifics of sign languages. For rapid adaptation to unknown signers the proposed recognition system employs a combined approach of maximum likelihood linear regression and maximum a posteriori estimation.},
+  abstract = {Research in the field of sign language recognition has made significant advances in recent years. The present achievements provide the basis for future applications with the objective of supporting the integration of deaf people into the hearing society. Translation systems, for example, could facilitate communication between deaf and hearing people in public situations. Further applications, such as user interfaces and automatic indexing of signed videos, become feasible. The current state in sign language recognition is roughly 30~years behind speech recognition, which corresponds to the gradual transition from isolated to continuous recognition for small vocabulary tasks. Research efforts were mainly focused on robust feature extraction or statistical modeling of signs. However, current recognition systems are still designed for signer-dependent operation under laboratory conditions. This paper describes a comprehensive concept for robust visual sign language recognition, which represents the recent developments in this field. The proposed recognition system aims for signer-independent operation and utilizes a single video camera for data acquisition to ensure user-friendliness. Since sign languages make use of manual and facial means of expression, both channels are employed for recognition. For mobile operation in uncontrolled environments, sophisticated algorithms were developed that robustly extract manual and facial features. The extraction of manual features relies on a multiple hypotheses tracking approach to resolve ambiguities of hand positions. For facial feature extraction, an active appearance model is applied which allows identification of areas of interest such as the eyes and mouth region. In the next processing step, a numerical description of the facial expression, head pose, line of sight, and lip outline is computed. The system employs a resolution strategy for dealing with mutual overlapping of the signer's hands and face. Classification is based on hidden Markov models which are able to compensate time and amplitude variances in the articulation of a sign. The classification stage is designed for recognition of isolated signs, as well as of continuous sign language. In the latter case, a stochastic language model can be utilized, which considers uni- and bigram probabilities of single and successive signs. For statistical modeling of reference models each sign is represented either as a whole or as a composition of smaller subunits---similar to phonemes in spoken languages. While recognition based on word models is limited to rather small vocabularies, subunit models open the door to large vocabularies. Achieving signer-independence constitutes a challenging problem, as the articulation of a sign is subject to high interpersonal variance. This problem cannot be solved by simple feature normalization and must be addressed at the classification level. Therefore, dedicated adaptation methods known from speech recognition were implemented and modified to consider the specifics of sign languages. For rapid adaptation to unknown signers the proposed recognition system employs a combined approach of maximum likelihood linear regression and maximum a posteriori estimation.},
   langid = {english},
-  keywords = {Computer vision,Hidden Markov models,Human{\textendash}computer interaction,Sign language recognition,Signer adaptation,Statistical pattern recognition}
+  keywords = {Computer vision,Hidden Markov models,Human-computer interaction,Sign language recognition,Signer adaptation,Statistical pattern recognition}
 }
 
 @inproceedings{weerasooriyaSinhalaFingerspellingSign2022,
@@ -768,12 +826,20 @@
   year = {2022},
   month = jul,
   pages = {1--6},
-  publisher = {{IEEE}},
-  address = {{Moratuwa, Sri Lanka}},
+  publisher = {IEEE},
+  address = {Moratuwa, Sri Lanka},
   doi = {10.1109/MERCon55799.2022.9906281},
   urldate = {2023-11-29},
   abstract = {Computer vision based sign language translation is usually based on using thousands of images or video sequences for model training. This is not an issue in the case of widely used languages such as American Sign Language. However, in case of languages with low resources such as Sinhala Sign Language, it's challenging to use similar methods for developing translators since there are no known data sets available for such studies.},
   isbn = {978-1-66548-786-3},
   langid = {english},
   file = {C:\Users\test\Zotero\storage\J4VM2MWH\Weerasooriya and Ambegoda - 2022 - Sinhala Fingerspelling Sign Language Recognition w.pdf}
+}
+
+@misc{williamfalconWelcomePyTorchLightning,
+  title = {Welcome to {{PyTorch Lightning}} --- {{PyTorch Lightning}} 2.2.3 Documentation},
+  author = {{William Falcon}},
+  url = {https://lightning.ai/docs/pytorch/stable/},
+  urldate = {2024-05-13},
+  file = {C:\Users\test\Zotero\storage\5DDV82BJ\stable.html}
 }
