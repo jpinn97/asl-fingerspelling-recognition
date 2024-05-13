@@ -1,6 +1,8 @@
 \documentclass[preprint,11pt,review,authoryear]{elsarticle}
 
 \usepackage{graphicx}
+\usepackage{caption}
+\usepackage{hyperref}
 \usepackage{titling}
 \usepackage{setspace}
 \usepackage{fancyhdr}
@@ -11,14 +13,15 @@
 \usepackage{ragged2e}
 \usepackage[pages=all]{background}
 \usepackage{docmute}
-\usepackage{graphicx}
 \usepackage{pdflscape}
 \usepackage{longtable}
 \usepackage{array}
 \usepackage{pdfpages}
 \usepackage{lettrine}
 \usepackage{tabularx, booktabs}
-
+\usepackage{svg}
+\usepackage{silence}
+\WarningFilter{natbib}{Citation}
 
 \usetikzlibrary{calc, arrows.meta,shapes.geometric,positioning,shadows.blur,trees}
 
@@ -68,6 +71,8 @@ contents={%
 
 \section{Acknowledgements}
 
+We'd like to thank the Kaggle community for their invaluable insight and contributions for data augmentations.
+
 \clearpage % page 2
 
 \tableofcontents
@@ -83,34 +88,36 @@ contents={%
 
 \lettrine[lines=2]{T}{his} Individual Project documents the conceptualization and development of a machine learning model for translating American Sign Language (ASL) fingerspelling videos into text. The foremost aim of the project, part A, is to create a model that can interpret ASL fingerspelling video and predict the corresponding text to a realistic degree. Given the success of part A, a smaller secondary objective part B is to develop a user-friendly application that allows the user to input ASL fingerspelling videos and receive the corresponding text output. The project outcomes are two-fold, a machine learning model and a user-friendly proof-of-concept that serves academia.
 
-The field of AI has seen rapid development in image and video recognition, however, the most prominently researched topics related to fingerspelling is automatic-speech-recognition (ASR). Interpreting sign language, gestures, and fingerspelling are even smaller niches, and development in these areas is lower. Leading figures such as Bowen Shi \cite{shiFingerspellingDetectionAmerican2021} provided the first attempts to recognize fingerspelling in "wild" environments.
+The field of AI has seen rapid development in image and video recognition, however, the most prominently researched topics related to fingerspelling is automatic-speech-recognition (ASR). Interpreting sign language, gestures, and fingerspelling are even smaller niches, and development in these areas is lower. Leading figures such as Bowen Shi \citep{shiFingerspellingDetectionAmerican2021} provided the first attempts to recognize fingerspelling in "wild" environments.
 
-Research for ASL fingerspelling recognition is lacklustre because of its niche topic, and small amount of overall ASL users worldwide, perhaps as high as 2 million \cite{mitchellHowManyPeople2006, ethnologueAmericanSignLanguage2023}. 
+Research for ASL fingerspelling recognition is lacklustre because of its niche topic, and small amount of overall ASL users worldwide, perhaps as high as 2 million \citep{mitchellHowManyPeople2006, ethnologueAmericanSignLanguage2023}. 
 
 Furthermore, the complexity of ASL fingerspelling recognition which has a high degree of variability in hand shape, movement, and speed of signing, and much more characteristics makes recognition a challenging task. This requires a large dataset and a robust model to solve this task, and over the years created datasets are small, lack diversity, and are not developed realistically to a real-world environments.
 
 The purpose of this project is to make use of emerging technologies and datasets in order to produce a model that can further the academic field, and improve accessibility for Deaf and Hard of Hearing individuals. The idea is that for a lot of users fingerspelling is faster than typing on a keyboard or smartphone, and so could provide a means of alternative smoother communication between Deaf and Hard of Hearing individuals, and technology. The model produced in this project will be a proof-of-concept, and will not be a final product, but will serve as a stepping stone for future research and development in the field. 
 
-The Cross-Industry Standard Process for Data Mining \cite{hotzWhatCRISPDM2018}, is a widely used methodology for data mining and artificial intelligence projects. It involves 6 steps that in practice are iterative, and can be revisited at any time as needed. The steps are Business Understanding, Data Understanding, Data Preparation, Modelling, Evaluation, and Deployment.
+The Cross-Industry Standard Process for Data Mining \citep{hotzWhatCRISPDM2018}, is a widely used methodology for data mining and artificial intelligence projects. It involves 6 steps that in practice are iterative, and can be revisited at any time as needed. The steps are Business Understanding, Data Understanding, Data Preparation, Modelling, Evaluation, and Deployment.
 
 Over the course of this document, we will document a literature review to discover our roots, following with the CRISP-DM methodology outlining our strategic and technical decisions. In here, expect to find a detailed explanation of the project's development, the model's architecture, and the application's design. We will also discuss the project's management, risks involves, milestones achieved, and state the achieved outcome of the project.
 
 % MAIN CHAPTERS
 
 \section{Chapter 1: Background and Related Work}
+
+The literature review for this project is maintained as a separate piece of work, and so may have repetition to other chapters of this project.
 \input{literature_review}
 \section{Chapter 3: Methodology}
 
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.5\textwidth]{images/CRISP-DM-process-model_W640.jpg}
-    \caption{CRISP-DM Methdology \cite{lofstromUtilizingDiversityPerformance2009}}
-    \label{fig:CRISP-DM Methdology}
+    \caption{CRISP-DM Methdology \citep{lofstromUtilizingDiversityPerformance2009}}
+    \label{fig:CRISP-DM}
 \end{figure}
 
-The CRoss Industry Standard Process for Data Mining (CRISP-DM) is a widely used methodology that provides a structured approach to undertaking data science projects from a process perspective. In this task, we emphasise the usage of CRISP-DM methodology as a preferable process over a standalone software development methodology, this is because the project requires a higher level of management than a naive implementation that agile gives. Agile-like processes can be integrated into CRISP-DM with usages of rapid prototyping and usual backlogging, testing, etc, but found the CRISP-DM "pipeline" is adaptable to the real world goal of developing data science projects.
+The CRoss Industry Standard Process for Data Mining (CRISP-DM) is a widely used methodology that provides a structured approach to undertaking data science projects from a process perspective. In this task, we emphasize the usage of CRISP-DM methodology as a preferable process over a standalone software development methodology, this is because the project requires a higher level of management than a naive implementation that agile gives. Agile-like processes can be integrated into CRISP-DM with usages of rapid prototyping and usual backlogging, testing, etc, but found the CRISP-DM "pipeline" is adaptable to the real world goal of developing data science projects.
 
-CRISP-DM is inherently iterative, it understands that whilst developing in say the evaluation phase, unexpected consequences allow us to move back to the data preparing or modelling phase to adjust. Furthermore, the feedback loops observed in \ref{fig:CRISP-DM Methdology} explicitly accommodates returning to previous steps to refine insights. 
+CRISP-DM is inherently iterative, it understands that whilst developing in say the evaluation phase, unexpected consequences allow us to move back to the data preparing or modelling phase to adjust. Furthermore, the feedback loops observed in Figure \ref{fig:CRISP-DM} explicitly accommodates returning to previous steps to refine insights. 
 
 The 6 phases include business understanding, data understanding, data preparation, modelling, evaluation, and deployment.
 
@@ -118,157 +125,376 @@ The 6 phases include business understanding, data understanding, data preparatio
 
 The objective of the project is to increase accessibility for the Deaf and Hard of Hearing community, and by developing artificial intelligent models, this would be achieved. In order to tackle this, we must understand if we have the ability to; developing AI requires computing resources (hardware platforms), as well as software, furthermore we must understand if the datasets available exist in order to complete the objectives, and if there are any data security concerns and or legal issues.
 
-The computer resource available to us are NVIDIA RTX 3090 GPU with 24GB of GDDR6X memory, an AMD Ryzen 9 7950X 16-Core Processor and 64GB of DDR5 memory. This is critical because one, seq2seq tasks can require a lot of memory and processing power from graphics cards / accelerators due to the amount of parameters and input sizes, and an NVIDIA monopoly due to the CUDA framework \cite{CUDAToolkitFree}.
+The computer resource available to us are NVIDIA RTX 3090 GPU with 24 GB of GDDR6X memory, an AMD Ryzen 9 7950X 16-Core Processor and 64 GB of DDR5 memory. This is critical because one, seq2seq tasks can require a lot of memory and processing power from graphics cards / accelerators due to the amount of parameters and input sizes, and an NVIDIA monopoly due to the CUDA framework \citep{CUDAToolkitFree}.
 
-At this early stage, we must decide upon the major tools. Artificial intelligence splits into two major deep learning frameworks, and are TensorFlow \cite{abadiTensorFlowSystemLargescale2016} and PyTorch \cite{paszkePyTorchImperativeStyle2019}. PyTorch has a tremendous amount of modularity, and out of the box support for major models, it also is very fast, and uses a lot less memory than TensorFlow.
+At this early stage, we must decide upon the major tools. Artificial intelligence splits into two major deep learning frameworks, and are TensorFlow \citep{abadiTensorFlowSystemLargescale2016} and PyTorch \citep{paszkePyTorchImperativeStyle2019}. PyTorch has a tremendous amount of modularity, and out of the box support for major models, comparing memory consumption and speed is harder than implementations of models are different, but is it generally agreed PyTorch is faster and has lower memory consumption.
 
 \begin{figure}[h]
     \centering
     \includegraphics[width=1\textwidth]{images/pytorch-vs-tensorflow-popularity-comparison.png}
-    \caption{TensorFlow vs PyTorch \cite{boeschPytorchVsTensorflow2023}}
-    \label{fig: TensorFlow vs PyTorch}
+    \caption{TensorFlow vs PyTorch \citep{boeschPytorchVsTensorflow2023}}
+    \label{fig:tfvspt}
 \end{figure}
 
-See Figure \ref{fig: TensorFlow vs PyTorch}, that shows the number of created repositories, i.e new projects with certain frameworks. For a comparison on these frameworks from Gardenz Boesch \cite{boeschPytorchVsTensorflow2023} and anecdotal evidence from increasing usage from popular data science website Kaggle \citep{anthonygoldbloomKaggleYourHome}, we conclude on PyTorch due to its ease of use modular system, out-of-box features, and increasing popularity shift compared to TensorFlow.
+See Figure \ref{fig:tfvspt}, that shows the number of created repositories, i.e. new projects with certain frameworks. For a comparison on these frameworks from Gardenz Boesch \citep{boeschPytorchVsTensorflow2023} and anecdotal evidence from increasing usage from popular data science website Kaggle \citep{anthonygoldbloomKaggleYourHome}, we conclude on PyTorch due to its ease of use modular system, out-of-box features, and increasing popularity shift compared to TensorFlow.
 
-The "ASL Fingerspelling Recognition Corpus (version 1.0) is a collection of hand and facial landmarks generated by MediaPipe version 0.9.0.1 on videos of phrases, addresses, phone numbers, and urls fingerspelling by over 100 Deaf signers" \cite{asl-fingerspelling} released by Google with a licence to adapt and use freely, even commercially \cite{CCDeedAttribution}. This dataset presents an opportunity, released shortly before this projects conception in early 2023. It is a large dataset in size (180GB) consisting of diverse conditions, number of signers, representation of signing fluency and cultures, essentially the complexity of the dataset allows a larger and more complicated model as the amount of features that can be extracted is high. This dataset can change the playing field, as previous research for ASL fingerspelling came from the ChicagoWild \cite{fs18slt} and ChicagoWild+ \cite{fs18iccv} datasets, which were the largest ASL fingerspelling collections "in the wild" conditions, essentially videos available online, predominately used by Bowen Shi \citep{shiAmericanSignLanguage2018}. 
+The "ASL Fingerspelling Recognition Corpus (version 1.0) is a collection of hand and facial landmarks generated by MediaPipe version 0.9.0.1 on videos of phrases, addresses, phone numbers, and urls fingerspelling by over 100 Deaf signers" \citep{asl-fingerspelling} released by Google with a licence to adapt and use freely, even commercially \citep{CCDeedAttribution}. This dataset presents an opportunity, released shortly before this projects conception in early 2023. It is a large dataset in size (180 GB) consisting of diverse conditions, number of signers, representation of signing fluency and cultures, essentially the complexity of the dataset allows a larger and more complicated model as the amount of features that can be extracted is high. This dataset can change the playing field, as previous research for ASL fingerspelling came from the ChicagoWild \citep{fs18slt} and ChicagoWild+ \citep{fs18iccv} datasets, which were the largest ASL fingerspelling collections "in the wild" conditions, essentially videos available online, predominately used by Bowen Shi \citep{shiAmericanSignLanguage2018}. 
 
 Academic research, as well as applied research has been moving away from these datasets due to legal issues regarding the source of the datasets, videos from the public realm such as YouTube were being downloaded and used without permission, this presented legal issues, and thus commerciality of models developed with it impossible would be of heightened concern.
 
 
 \subsection{Data Understanding}
 
-Given our chosen dataset, we must explore the data we are working with. This includes the complexity of the data, in terms of size, shape, format, distribution, and quality. We need to model the data so we can understand the relationships between fields. The data was created using MediaPipe ****CITE*****, an open-source framework for creating AI pipelines, it contains various pre-trained models such as the MediaPipe Holistic Model https://github.com/google/mediapipe/blob/master/docs/solutions/holistic.md that can label images and videos, for groups of the body such as hands, face, and pose.
+Given our chosen dataset, we must explore the data we are working with. This includes the complexity of the data, in terms of size, shape, format, distribution, and quality. We need to model the data, so we can understand the relationships between fields. The data was created using MediaPipe \citep{lugaresiMediaPipeFrameworkBuilding2019}, an open-source framework for creating AI pipelines, it contains various pre-trained models that can label images and videos, for groups of the body such as hands, face, and pose.
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=1\textwidth]{images/mediapipe.png}
-    \caption{MediaPipe Framework Hand Landmarks \cite{IMAGE}}
-    \label{fig:MediaPipe Framework}
+    \includegraphics[width=0.75\textwidth]{images/hand-landmarks.png}
+    \caption{MediaPipe Framework Hand Landmarks \citep{lugaresiMediaPipeFrameworkBuilding2019}}
+    \label{fig:handlandmark1}
 \end{figure}
 
-Figure \ref{fig:MediaPipe Framework} shows the mapping of landmarks for hands, which are points used to track the movemnt of the joints and important features, all groups have this structure.
-
-The dataset consists of 121 parquet files, columnar-storage structure for large datasets that work in a distributed environment such as Hadoop. 
+Figure \ref{fig:handlandmark1} shows the mapping of landmarks for hands, which are points used to track the movement of the joints and important features, all groups have this structure. The dataset consists of 121 parquet files, columnar-storage structure for large datasets that work in a distributed environment such as Hadoop
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=1\textwidth]{images/parquet_structure_1.png}
+    \includegraphics[width=0.75\textwidth]{images/parquet_structure_1.png}
     \caption{Dataset Structure: train.csv}
-    \label{fig:Dataset Structure}
+    \label{fig:datastructure1}
 \end{figure}
 
-Referring to Figure \ref{fig:Dataset Structure}, the components of the dataset is primarily of sequence_id, which correlate to a signed phrase which is denoted by a seperate train.csv document. Each sequence_id groups a number of sequences or rows of frames. This grouping extends again as all the following columns are landmarks split into their x, y, z axis.
-
+The first figure, referenced as Figure \ref{fig:datastructure1}, illustrates the train.csv file where each sequence\_id corresponds to a signed phrase, linking to a separate document. Each sequence\_id organizes multiple sequences or rows of frames, with the subsequent columns detailing landmarks divided into their x, y, and z coordinates.
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=1\textwidth]{images/parquet_structure_2.png}
+    \includegraphics[width=0.75\textwidth]{images/parquet_structure_2.png}
     \caption{Parquet File Structure}
-    \label{fig:Parquet File Structure}
+    \label{fig:datastructure2}
 \end{figure}
 
-Figure \ref{fig:Parquet File Structure} shows us this is a sequential dataset. Exploring the dataset we see that the length of phrases are variable, as is the number of frames in each sequence. There are 1,629 spatial coordinates representing x, y, z for each of 543 landmarks represented by 'face', 'left_hand', 'pose', 'right_hand'. 
+The second figure, referred to as Figure \ref{fig:datastructure2}, depicts the structure of a Parquet file, highlighting that the dataset is sequential. Analysis of the dataset reveals variability in the length of phrases and the number of frames per sequence. The dataset comprises 1,629 spatial coordinates that capture the x, y, and z positions for each of the 543 landmarks identified across categories like 'face', 'left\_hand', 'pose', and 'right\_hand'.
 
-Additionally, there are a number of landmarks where values are missing, and for some large stretches of frames all values are missing, which denotes a potential corruption of recording or missing data. These missing values will need to be handled carefully in the data preparation phase. The variability of the data is a challenge, certain models in seq2seq tasks require fixed lengths for inputs and outputs, and the large variability is a trouble so truncation or interpolation along the time axis may be necessary. The sequence length would allow a larger range of temporal features to be extracted but would require a complex model and larger memory requirements.  The landmarks are of type float32, which is a 32-bit floating point number, this is typically high precision and default in PyTorch and TensorFlow, we may not require this level of precision and could downcast to float16 or another type to save memory and speed up computation.
+Exploring the dataset, we create a Python script, and use pip packages such as pandas, pyarrow, and numpy to load and manipulate the data. Pandas and pyarrow allows us to load the parquet into a data frame to get some characteristics of one file.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.65\textwidth]{images/distro_chars.png}
+    \caption{Distribution of Phrase Lengths (no. of characters)}
+    \label{fig:distro_chars}
+\end{figure}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.65\textwidth]{images/distro_frames.png}
+    \caption{Distribution of Sequence Lengths (no. of frames)}
+    \label{fig:distro_frames}
+\end{figure}
+
+The length of the phrases, by the number of characters is at most 32, there are a number of short phrases which would need to be investigated further less than 10. 
+
+The length of sequences is highly variable whereas the phrases is not so much. The length of sequences seems to reflect with the length of phrases but is weighted towards shorter sequences, as the number of frames increases, the number of characters in the phrase increases in order to complete the phrase. Given potential clipping errors, there seems to be outliers from 400+ frames, which might signify a failure by signer to stop the recording, or a failure in the recording process. This makes plausible sense as there are no phrases in that ball pack area. There's an understanding that phrase lengths are not tightly clipped, and unnecessary frames exist at the end, which should correlate to actual fingerspelling.
+
+There are a number of NaN values, for where landmarks have no value, this could be due to the holistic model unable to detect, or the landmark simply wasn't in frame at that time.
 
 \subsection{Data Preparation}
 
+For the code for the data preparation and preprocessing, please refer to \ref{G}. Preparing the dataset is a critical step, and can be as important as the model itself. The 121 parquet files contains the 68 parquet files totalling 95 GiB, each roughly 1.4 GiB, from the training set, and 53 parquet files from a supplemental set. The model we decide to use, will have to loop over the data given in iterations called epochs, each epoch a run through of the data, and the model will learn from the data, and adjust its weights and biases to minimize the loss function. The two parts of the dataset are nominal throughout, so we could only use the training set which reduces the overall size of the dataset to 95 GiB and inputs steps into the model per epoch.
 
+Depending on the model chosen, certain preprocessing can happen at run-time or before the model is trained. The dataset must be prepared, so that it is in a format that most machine learning models can understand. This also includes performing augmentations, which are transformations on the data that should enhance the quality of the data, but do not necessarily change the underlying meaning of it. This is done to increase the robustness of the dataset, so that complex models can extract features without over or under fitting, and by doing so the model can train for longer. At some point data augmentation becomes trial and error.
+
+The parquet files of the dataset are too large to be kept in memory, and the size of the data should be as minimum as possible without losing value. For the preprocessing stage we use TensorFlow's TFRecord file format, which allows us to store large amounts of data in binary format, which reduces the overall disk size used to 19.2 GiB, with the average TFRecord while being reduced over 85\% to 160 MiB. This is advantageous to do because as we require constant tinkering due to the CRISP-DM methodology, we require data that can be preprocessed quickly instead of waiting for this step before training.
+
+Furthermore, this saves our computing resources that could be crucial in allowing us the largest possible model.
+
+There are a number of common data augmentations that are used in image and video processing, such as rotation, scaling, translation, flipping, and cropping, removing, random replacement of tokens, adding artificial noise, and more. 
+
+The file\_id of each parquet file is processed to create a TFRecord file, it is read and the columns of the sequence\_id as well as a selection of columns is extracted. The selection columns are the landmarks for the hands, face, and pose, that we have grouped, and specified the x, y, and z coordinates. We take a large range of the face to include lips and eyes, all the left and right hand, and 23 of the pose, which excludes the forearms.
+
+Standard scaling for the FACE, LHAND, RHAND, POSE is performed with respect with mean and standard deviation to normalize the data so that essentially all landmarks of that group are equally treated so that larger valued features aren't prioritized. This can increase model performance of models with gradient descent optimization and neural networks with non-linear activation functions.
+
+Referring back to Figure \ref{fig:distro_frames} we recall different chunks at frames 256 and 384, we will use these as the maximum frame lengths. The sequences that are above this maximum length we don't want to truncate as the rest of the frames could be important, and we'd lose valuable data compared to its target. Interpolation is used to create a sequence of frames that extrapolates a linear trend from the existing frames beyond the maximum length. This is an attempt to maintain the integrity of the data, but to shorten it.
+
+Next, the unhandled NaN values are filled with 0s as the model will simply not be able to process NaNs. The NaNs, now 0s, are counted for the left and right hand, which are used to create a process whereby we remove corrupted data that is short, and has no hands. Mikel Bober-Irizar found that by using the levenstein distance and greedy decoding, found the average string which is used to fill in \citep{mikelbober-irizarStaticGreedyBaseline}.
+
+Sequences where twice the length of the target phrase is less than the maximum amount of NaNs from the left or right hand are serialized and moved into a schema where a single sequence contains all its landmarks and corresponding frames equating to the target phrase it represents. It is then written to file. The features are stored as a FloatList, and the phrase is stored as a ByteList with utf-8 encoding. 
+
+This whole process is used with Python's multiprocessing library, which allows us to run the process a number of items at once, keeping in sync. This speeds up processing by a factor of the number of processes allocated. Preprocessing that takes 10 minutes with 8 cores takes roughly 1.25 minutes.
 
 \section{Chapter 4: System Design and Architecture}
 
+\subsection{Modelling}
 
+At this point, we have a sufficient pipeline of preprocessing. Given our literature review, there are a multitude of machine learning and deep learning models. Transformers are still state-of-the-art in seq2seq tasks, and our choice of PyTorch as a framework we must perform our preprocessing steps that will occur at runtime.
 
-\section{Chapter 5: Implementation}
+A Transformer in PyTorch has an expectation that the shape of the data at the input is [batch size, sequence length, features]. The batch size is the number of sequences that are inputted at once, the sequence length is the number of frames in the sequence, and the features are the number of landmarks. PyTorch has a system whereby data pipes are used to modularly create a stream of data, this can be used to create a data loader that can be used to feed the model, this can be done in parallel with other processes to increase input.
 
+Referring to \ref{F}, specifically \ref{fig:pp_runtime} for a large overview of the pre-processing that is completed to serve the Transformer as well as \ref{G} for the implementation.
 
-\newpage % INCLUDE CODE
-%\includepdf[pages=1-16]{/home/jpinn/asl-fingerspelling-recognition/report/latex/fingerspellingIPYNB.pdf}
+The usage of data pipes allows us to iteratively stack pipes, and perform transformations on the data, the newly created TFRecords are split 80:20 for the train and validation set. The config of the pipe is used to slice TFRecords depending on where we want the index to start and end, take a training set which would be 0-96 for the full set.  A shuffler is used to list and buffer TFRecords into memory, the iterable pipe then opens the file in binary mode, opens and decompressed the file, loading an Example. 
+
+Previously, during the creation of the TFRecords, we encapsulated the features and phrases of the dataset into a structure known as an Example. Each Example is a serialized representation of a single data instance, and in our setup, it was defined to include a sequence of landmarks, frames, and a target phrase. Once deserialized, these records are processed through tokenization. Tokenization can vary, from ordinal to one-hot encoding, but it essentially involves converting the characters of the phrases into numerical formats. For use with a Transformer model, this conversion generates a list of tensors. Additionally, we prepend a start token at the beginning of each sequence and append an end token at the end to facilitate processing. The tokens are important for the model to understand the beginning and end of a sequence, and to differentiate between the two. A model should learn when to start and stop predicting additional tokens.
+
+Transformers are designed to handle variable-length sequences by padding them to a uniform length within each batch. This is why the maximum sequence length was previously set to either 256 or 384. With a batch size of 128, both the sequence frames and the tokenized phrases are padded with specific tokens to reach this maximum length. For the sequence frames, a padding token of 0 is used, and for the tokenized phrases, a special class token indexed as 61 is used, ensuring all sequences within a batch are of the same length.
+
+At the same time, we calculate and pass on a list of the original lengths of the sequences frames  and target phrase before padding.
+
+For an in-depth explanation of Transformers, refer to \cite{vaswaniAttentionAllYou2023}. Other than changing the parameters to fit the dimensionality and task of our dataset, the original Transformer uses positional encoding to give the model information about the order and position of tokens in a sequence. We employ learned positional embeddings instead, which are trained alongside the model. This allows the model to learn a more optimal, specific positional encoding for this task.
+
+Our model has an encoder and a decoder, it has 8 encoder layers, 2 decoder layers, and 4 heads each. The input is passed through an 3 1d convolutional layers to extract features, and concatenated with an embedding layer, and passed through the encoder. The target tokens are passed through an embedding layer to generate token embeddings, and are concatenated with another embedding layer. This gives the tokens positional information which should provide more nuanced relationships.
+
+The lengths of the source and phrases that we retained earlier, are used to mask the inputs to the model. Transformer will attend to all tokens, but we want the model to not attend to padding tokens, as well as being able to cheat and lookahead. We provide padding masks that apply 0s to the padding tokens, and the Transformer doesn't attend to these tokens are the score is minimal. We also provide a look-ahead mask for the target, which is a triangular matrix that masks the future tokens. These are critical for the model to learn that it is decoding, and not classifying, as the model should only be predicted the next token given the previous.
+
+There were a number of additional steps that were used to modify the model, such as label smoothing, which is a regularization technique that prevents the model from becoming too confident in its predictions. We also experimented with increased dropout, and weight decay of the optimizer. We used a fused AdamW optimizer, an optimizer is controller that updates the weights and biases of the parameters in the model per step or batch given the returned loss function. AdamW was used with a stacked learning rate scheduler, that gave a warm-up period of 10 epochs followed by 190 epochs with CosineDecay scheduler, a scheduler is a function that changes the learning rate of the optimizer slowly over time. This allows the gradients and parameters to "warm up" and then slowly converge to a minimum, this is important as the model can get stuck in local minima, and not converge to a global minimum.
+
+After hand rolling everything we moved to a library called PyTorch Lightning. After hundreds and hundreds of lines of PyTorch code, Lightning \citep{williamfalconWelcomePyTorchLightning} greatly reduces boilerplate, has a lot of optimization and allows you to focus on what's important. We were able to change the precision of our model from 32-bit to bf16-mixed, which is a mixed precision training that uses 16-bit floating point numbers for the model weights and 32-bit for the gradients. This reduces the memory usage and speeds up training, by almost 2x.
+
+A lot of manual work is moved into simple Lightning modules which are wrappers around your model architecture, it also has a data module to encompass the data pipeline, and a trainer to control the training, validation and prediction loops. This allows us to greatly enhance the ease of use of PyTorch natively.
+
+In this stage, we were constantly iterating to find something that was good enough to move in that direction with.
+
+\newpage 
 \section{Chapter 6: Testing and Validation}
 
+\subsection{Evaluation}
+
+During the early stages of development, the model was evaluated using Ray Tune \citep{RayTrainScalable}. Initially, due to simpler model architectures and lower memory requirements, it was feasible to concurrently run multiple instances (typically 2 or 4) to test various hyperparameters. These parameters included batch size, gradient accumulation, learning rates, feature dimensionality, the number of heads and layers, sequence length, type of optimizer, fusion techniques, and schedulers. This comprehensive testing was crucial to understand how different configurations influenced the model's performance on the dataset.
+
+As the training progresses, the model utilizes the CrossEntropy loss function to gauge the discrepancy between the predicted probabilities and the actual target labels across 62 classes. Each training step involves generating a probability for the next token, with the loss being calculated as the negative logarithm of the probability assigned to the correct token, summed across all predictions. Following the loss calculation, the model undergoes back propagation—adjusting its weights and biases to minimize the loss. This optimization is repeated iteratively with each batch. Ideally, this should result in a reduction of training loss over time. Simultaneously, it is expected that the validation loss should decrease at a comparable or better rate, contingent on the level of regularization applied.
+
+Referring to Figure \ref{fig:trainvsval} substantial regularization, such as L1/L2 and dropout, intentionally impairs the training performance by temporarily disabling numerous neurons within the Transformer's feed-forward network. This approach, while potentially increasing training loss, enhances the model's ability to generalize to unseen data. This explains why the training loss may occasionally exceed the validation loss. This allows the model training to remain on the rails for longer.
+
+
+\begin{table}[htbp]
+    \centering
+    \caption{Edit Distance Comparison}
+    \begin{tabular}{lll}
+        \toprule
+        Predicted                                & Target                                   & Edit Distance \\
+        \midrule
+        + wust tannot figure this out            & i just cannot figure this out            & 3.0           \\
+        +t r ahoulders anees and toes            & head shoulders knees and toes            & 6.0           \\
+        +he ftn of the parts                     & the sum of the parts                     & 4.0           \\
+        +o nou gike to go camping                & do you like to go camping                & 3.0           \\
+        +aare ts a high priorita                 & space is a high priority                 & 5.0           \\
+        +o n good deed to some                   & do a good deed to someone                & 5.0           \\
+        + good stimulus deserves a bood response & a good stimulus deserves a good response & 2.0           \\
+        +ou aall aose your aoice                 & you will lose your voice                 & 5.0           \\
+        +ware did you get tuch a silly idea      & where did you get such a silly idea      & 4.0           \\
+        
+        \bottomrule
+    \end{tabular}
+    \label{tab:edit_distance}
+\end{table}
+
+After inference of 5137 targets, we logged the predicted string, target string, and the edit distance. The model quite quickly understood what the end token was, and so we eventually assigned most if not all padding tokens as end tokens. For inference, we sliced the string from the first end token, to the target without the start token and end token. This was used to calculate the mean levenstein distance, of which was 4.7, and with a mean length of 28.7 for the target phrase. This gives us an error rate of 16.37\%.
+
+We used Lightning to perform inference using the predict step, which was used on a holdout set, which was a set of data that the model had never seen before. The Levenshtein or edit distance, is the minimum number of single-character edits required to change one word into another. This was used to calculate the distance between the predicted phrase and the target phrase. The edit distance was calculated for each phrase in the holdout set, and the average was taken. The lower the edit distance, the better the model is at predicting the target phrase. \ref{tab:edit_distance} shows a selection of the predicted phrases, the target phrases, and the edit distance between them. It seems we have a bug in our code, the predicted phrase starts on the first character, but it doesn't seem to make a prediction despite having an input yet. However, it is still quite robust at long and short phrases, and is definitely readable.
+
+
+
+\section{Chapter 7: Management of Project}
+
+In regard to the project management, CRISP-DM invaluable in setting out how to begin and in what steps, which was preferred over a software development methodology alone. The project was managed using a Gantt chart \ref{fig:GanttChart}, which was used to plan and track the project's progress. It worked very well up until March, the project was on track, and our risk register \ref{fig:Risk Register} included a high potential risk of overflowing project time due to project complexity. Project halted for a whole month as the model was not performing as expected, and so the project was behind schedule. The project was able to recover, this was possible down to streamlining the development process by bringing in Ray Tuning and Lightning. This allowed the model to be training multiple hyperparameters at all times.
+
+The usage of work break down documents such as \ref{fig:WBS: Build Application} were more prominent early on, they allowed us to set expectations of the work that was required and to move in a structured way. As we moved deeper into the model development in regard to augmentations, these became less useful as the work was more iterative.
+
 \section{Ethical Considerations Chapter}
-
+The dataset used could be used identify or track individuals, although the consent was given to use their data, we mustn't attempt to derive any identification.
 \section{Legal Considerations Chapter}
-
+Not applicable.
 \section{Conclusion Chapter}
 
+This Individual Project documents the conceptualization, development, and evaluation of a machine learning model designed to translate American Sign Language (ASL) fingerspelling videos into text. As the final chapter of this journey, it encapsulates the full scope of the research, development efforts, and key findings, while critically assessing the achievements and limitations encountered along the way.
+
+The primary aim of the project, Part A was to develop a machine learning model capable of interpreting ASL fingerspelling and predicting the corresponding text with a realistic degree of accuracy. This goal was ambitiously set against a backdrop of limited research and development in the niche area of ASL fingerspelling recognition. Despite these challenges, the project has successfully demonstrated that it is indeed feasible to use advanced AI techniques to interpret and translate ASL fingerspelling into text using the new ASL Fingerspelling dataset. The model achieved an error rate of 16.37\% in predicting target phrases, a significant accomplishment for a novice given the complexity of the task and the variability inherent in human sign language. This requires further research to confirm these results.
+
+However, the secondary objective—Part B, which aimed to develop a user-friendly application that allows for the input of ASL fingerspelling videos and outputs corresponding text was not achieved. This shortfall was primarily due to the model's performance not meeting the expected benchmarks necessary for a seamless user application in time. This outcome highlights a critical learning point: the necessity of setting realistic expectations and preparing for iterative developments when tackling such complex AI-driven projects.
+
+Throughout the project, extensive research and a rigorous literature review guided the strategic and technical decisions. The CRoss Industry Standard Process for Data Mining (CRISP-DM) methodology provided a structured approach, emphasizing an iterative process that was crucial in navigating the unexpected challenges and refining the project's direction. The selection of PyTorch as the development framework due to its modularity and the employment of the Transformer model architecture were decisions that underpinned the technical success of the model.
+
+This project has contributed to the academic field and offers a proof that advances the technology available for improving communication accessibility for the Deaf and Hard of Hearing communities. It underscores the potential of machine learning in bridging communication gaps through the translation of ASL fingerspelling into text, setting a precedent for future research in this area.
+
+Several recommendations can be made based on the lessons learned for future projects in this domain. These include:
+
+Iterative Testing and Development: Continuous testing phases are crucial, especially in projects involving complex AI models. These phases should be designed to not only assess the accuracy but also the applicability of the model in real-world scenarios.
+
+Robust Dataset Utilization: The importance of a diverse and extensive dataset cannot be overstated. Future projects should aim to expand the dataset used, possibly incorporating more dynamic and varied environmental conditions to train more robust models.
+
+User-Centric Design: Part B of the project's aim highlights the importance of aligning technical achievements with user needs. Future projects should integrate user experience design earlier in the process to ensure that the end product is both functional and user-friendly.
+
+In summary, this project provides a strong foundation for novices in AI for future work and outlines that the most state-of-art models such as Squeezeformer are not always necessarily feasible or worthwhile.
+
+\clearpage
 \bibliographystyle{elsarticle-harv}
 \bibliography{library}
-
-\section{DEVELOPMENT NOTES}
-
-\subsection{Algorithm Pseudocode}
-https://ctan.math.washington.edu/tex-archive/macros/latex/contrib/algpseudocodex/algpseudocodex.pdf
-
-\subsection{Model Art}
-https://github.com/ashishpatel26/Tools-to-Design-or-Visualize-Architecture-of-Neural-Network?tab=readme-ov-file
 
 \appendix{Appendices}
 \newpage
 \onecolumn
-\section{Glossary}
+\section{Glossary} \label{A}
 \pagenumbering{arabic} % Reset page numbering
 \renewcommand{\thepage}{A\arabic{page}}
 \newpage
-\section{Marking Scheme}
+\textbf{ASL (American Sign Language)} - A complete, natural language that serves as the predominant sign language of Deaf communities in the United States and most of Anglophone Canada.
+
+\textbf{Fingerspelling} - The use of hand movements to spell out words and phrases using a manual alphabet in sign language.
+
+\textbf{CRISP-DM (Cross Industry Standard Process for Data Mining)} - A widely used data mining process model that describes common approaches used by data mining experts and lists typical phases of a project.
+
+\textbf{TensorFlow and PyTorch} - Open-source machine learning libraries for research and production, providing a range of tools, libraries, and community resources that let researchers create complex machine learning algorithms and developers easily build and deploy ML powered applications.
+
+\textbf{Transformer Model} - An architecture that handles sequential data without the use of recurrence. It uses self-attention to weigh the significance of different words in a sequence.
+
+\textbf{MediaPipe} - A framework for building multimodal (video, audio, any time-series data) applied machine learning pipelines, developed by Google.
+
+\textbf{Parquet File} - A columnar storage file format available to any project in the Hadoop ecosystem, designed to provide efficient data compression and encoding schemes.
+
+\textbf{TFRecord} - A simple record-oriented binary format that works well with TensorFlow. It allows for data to be serialized and read with a structure that TensorFlow is optimized to handle.
+
+\textbf{Data Augmentation} - Techniques used to increase the amount of data by adding slightly modified copies of already existing data or newly created synthetic data from existing data.
+
+\textbf{Seq2Seq (Sequence-to-Sequence)} - A category of machine learning models that translates a sequence of items (such as words in a sentence) from one domain into another.
+
+\textbf{Landmarks} - Specific points on an object that are used to track the object's properties, such as position or orientation. Often used in gesture recognition to track the positions of hands or face.
+
+\textbf{Hyperparameters} - Parameters whose values are used to control the learning process and must be set before training (as opposed to the values that are learned during training).
+
+\textbf{Edit Distance (Levenshtein Distance)} - A measure of the similarity between two strings, which is the minimum number of operations required to transform one string into the other.
+
+\textbf{Epochs} - Complete passes over the entire dataset during training, used to help the model learn from the data iteratively.
+
+\textbf{Batch Size} - The number of training examples utilized in one iteration.
+
+\textbf{Gradient Descent Optimization} - A method to minimize an objective function by moving in the direction of steepest descent as defined by the negative of the gradient.
+
+\textbf{Lookahead Masking and Padding Masking} - Techniques used in Transformer models to prevent the model from cheating by using future tokens or irrelevant padding in the sequence.
+
+\textbf{PyTorch Lightning} - A lightweight PyTorch wrapper for high-performance AI research. Simplifies the process of running new experiments and reduces boilerplate code.
+
+\textbf{CUDA Framework} - A parallel computing platform and API model created by NVIDIA allowing for dramatic increases in computing performance by harnessing the power of the GPU.
+
+\textbf{Sequential Data} - Data that is ordered sequentially, often containing dependencies between successive elements, common in time-series data or language processing.
+
+\textbf{Tokenizer} - A tool used in data preprocessing, particularly in natural language processing, that converts text into a format that can be fed into a model, usually by splitting text into words or symbols.
+
+\textbf{Padding} - The process of standardizing the lengths of sequences by adding a specific value, usually zero, to sequences shorter than a specified length during data preprocessing.
+
+\textbf{Cross-Entropy Loss} - A loss function commonly used in classification tasks, which measures the performance of a classification model whose output is a probability value between 0 and 1.
+
+\textbf{Back Propagation} - A method used in artificial neural networks to improve the model by iteratively adjusting the weights of neurons in order to minimize the difference between the actual output and the desired output.
+
+\textbf{Regularization (L1/L2, Dropout)} - Techniques used to reduce overfitting in machine learning models by penalizing model complexity or randomly dropping units during training.
+
+\textbf{Feed-Forward Network} - A type of neural network where connections between the nodes do not form a cycle. This is the simplest type of artificial neural network.
+
+\textbf{Positional Encoding} - A technique used in models that handle sequential data (like Transformers) to indicate the relative position of data points in a sequence.
+
+\textbf{Learned Positional Embeddings} - Unlike fixed positional encodings, these are learned during training and can adapt to the specificities of the data.
+
+\textbf{Label Smoothing} - A regularization technique often used in classification problems to make the model less confident about its predictions by softening the target labels.
+
+\textbf{AdamW Optimizer} - A variant of the Adam optimizer that decouples the weight decay from the optimization steps, typically leading to better training stability.
+
+\textbf{Learning Rate Scheduler} - Component in training optimization that adjusts the learning rate over time, typically reducing the learning rate according to a predefined schedule to help the model converge to a better minimum.
+
+\textbf{Cosine Decay Scheduler} - A strategy for reducing the learning rate following a cosine curve, which starts high and gradually lowers, simulating a restart at the end of each cycle.
+
+\textbf{Warm-Up Period} - A phase at the beginning of training where the learning rate gradually increases from a lower value to its initial set value, which can help in stabilizing the learning process.
+
+\textbf{Triangular Matrix} - In the context of Transformers, used in the look-ahead mask to ensure that the predictions for a particular position can only depend on known outputs at positions before it.
+
+\textbf{Mixed Precision Training} - Technique that uses both 16-bit and 32-bit floating-point types during model training for improving computational efficiency and memory usage without significant loss in model performance.
+
+\textbf{Ray Tune} - A Python library for experiment execution and hyperparameter tuning at scale, which helps in optimizing model performance.
+
+\newpage
+\section{Marking Scheme} \label{B}
 \pagenumbering{arabic} % Reset page numbering
 \renewcommand{\thepage}{B\arabic{page}}
-\newpage
-\section{Changes to the Project Initiation Document}
+
+Given this was closer to a research project, please refer to the Default marking schema.\newpage
+\section{Changes to the Project Initiation Document} \label{C}
 \pagenumbering{arabic} % Reset page numbering
 \renewcommand{\thepage}{C\arabic{page}}
+
+Not applicable.
 \newpage
-\section{Current Environment Investigation Report}
+\section{Current Environment Investigation Report} \label{D}
 \pagenumbering{arabic} % Reset page numbering
 \renewcommand{\thepage}{D\arabic{page}}
+
+Not applicable.
 \newpage
-\section{Requirements Specification}
+\section{Requirements Specification} \label{E}
 \pagenumbering{arabic} % Reset page numbering
 \renewcommand{\thepage}{E\arabic{page}}
+Not applicable.
 \newpage
-\section{Design Report}
+\section{Design Report} \label{F}
 \pagenumbering{arabic} % Reset page numbering
 \renewcommand{\thepage}{F\arabic{page}}
+\begin{figure}
+    \centering
+    \includegraphics[width=0.75\textwidth]{images/pp_runtime_v5.png}
+    \caption{Pre-processing at Runtime Model}
+    \label{fig:pp_runtime}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.75\textwidth]{images/transformer.png}
+    \caption{Transformer Model}
+    \label{fig:transformer_model}
+\end{figure}
 \newpage
-\section{Implementation}
+\section{Implementation} \label{G}
 \pagenumbering{arabic} % Reset page numbering
 \renewcommand{\thepage}{G\arabic{page}}
-\newpage
-\section{Testing}
+
+\includepdf[pages=1-16]{/home/jpinn/asl-fingerspelling-recognition/report/latex/fingerspelling_v2.pdf}
+\section{Testing} \label{H}
 \pagenumbering{arabic} % Reset page numbering
 \renewcommand{\thepage}{H\arabic{page}}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.75\textwidth]{images/tester.png}
+    \caption{Train Loss vs Validation Loss 16 Hours}
+    \label{fig:trainvsval}
+\end{figure}
 \newpage
-\section{User Guide}
+\section{User Guide} \label{I}
 \pagenumbering{arabic} % Reset page numbering
 \renewcommand{\thepage}{I\arabic{page}}
+
+Not applicable.
 \newpage
-\section{Project Management}
+\section{Project Management} \label{J}
 \pagenumbering{arabic} % Reset page numbering
 \renewcommand{\thepage}{J\arabic{page}} % Format page numbering as A1, A2, etc.
 % Include the Work Breakdown Structure
-\begin{figure}[ht]
+\begin{figure}[h]
     \input{work_breakdown_structure_phase_one.tex}
     \caption{Work Breakdown Structure: Develop Model}
     \label{fig:WBS: Develop Model}
 \end{figure}
 \newpage
 \begin{landscape}
-    \begin{figure}[ht]
+    \begin{figure}[h]
         \input{work_breakdown_structure_phase_two.tex}
         \caption{Work Breakdown Structure: Build Application}
         \label{fig:WBS: Build Application}
     \end{figure}
 \end{landscape}
 \newpage
-\begin{figure}[ht]
+\begin{figure}[h]
     \input{work_breakdown_structure.tex}
     \caption{Work Breakdown Structure}
     \label{fig:WBS: Project Charter}
 \end{figure}
 \newpage
 \begin{landscape}
-    \begin{figure}[ht]
+    \begin{figure}[h]
         \centering
         % Placeholder for the Gantt chart
         \fbox{\parbox{15cm}{\centering Gantt chart placeholder \\ (Refer to the accompanying zipped file for the full chart)}}
@@ -277,13 +503,13 @@ https://github.com/ashishpatel26/Tools-to-Design-or-Visualize-Architecture-of-Ne
     \end{figure}
     In this report's accompanying zipped file, a detailed Gantt chart is included as a separate document. Due to its extensive size and complexity, it is provided as an individual file to facilitate detailed review and ensure clarity. Please refer to the zipped file named gantt-project.png for the complete Gantt chart, which offers an in-depth view of the project timeline and milestones.
 \end{landscape}
-\begin{figure}[ht]
+\begin{figure}[h]
     \input{risk_register.tex}
     \caption{Risk register}
     \label{fig:Risk Register}
 \end{figure}
 \newpage
-\section{Meetings With Supervisor}
+\section{Meetings With Supervisor} \label{K}
 \pagenumbering{arabic} % Reset page numbering
 \renewcommand{\thepage}{K\arabic{page}}
 \newpage
@@ -292,13 +518,16 @@ https://github.com/ashishpatel26/Tools-to-Design-or-Visualize-Architecture-of-Ne
 \pagenumbering{arabic} % Reset page numbering
 \renewcommand{\thepage}{L\arabic{page}}
 \newpage
+Not applicable.
 \section{Agile Development: Timebox 2}
 \pagenumbering{arabic} % Reset page numbering
 \renewcommand{\thepage}{M\arabic{page}}
 \newpage
+Not applicable.
 \section{Agile Development: Timebox 3}
 \pagenumbering{arabic} % Reset page numbering
 \renewcommand{\thepage}{N\arabic{page}}
 \newpage
+Not applicable.
 
 \end{document}
